@@ -1,0 +1,248 @@
+body
+{
+	margin: 0px 0px 0px 0px;
+	font-family: 'Century Gothic'
+}
+
+a
+{
+
+	text-decoration: none;
+	color:white;
+}
+
+.heads{
+	max-width:100%;
+	height: 600px;
+	background-image: url(../img/head.jpg);
+	background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header
+{
+	width: 100%;
+	max-height: 150px;
+	height: 150px;
+	display: flex;
+	flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+}
+
+.logo
+{
+	width: 100px;
+	height: 100px;
+	background-image: url(../img/logo.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	border-radius: 50px;
+}
+
+.bilet
+{
+	width: 90%;
+	display: flex;
+	flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+h1
+{
+	color: white;
+	text-align: center;
+}
+
+h2
+{
+	color: #0085FF;
+	text-align: center;
+}
+
+.content
+{
+	width: 100%;
+	height: 530px;
+	color: black;
+}
+
+.preim
+{
+	width: 100%;
+	height: 200px;
+	display: flex;
+	flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.block1
+{
+	width: 20%;
+	height: 190px;
+	border: 2px solid black;
+	display: flex;
+	flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.block2
+{
+	width: 20%;
+	height: 190px;
+	border: 2px solid black;
+	display: flex;
+	flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.block3
+{
+	width: 20%;
+	height: 190px;
+	border: 2px solid black;
+	display: flex;
+	flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.otzivi
+{
+	width: 100%;
+	height: 200px;
+	display: flex;
+	justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.otziv1
+{
+	width: 15%;
+	height: 180px;
+	border: 2px solid black;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.otziv2
+{
+	width: 15%;
+	height: 180px;
+	border: 2px solid black;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.otziv3
+{
+	width: 15%;
+	height: 180px;
+	border: 2px solid black;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.otziv4
+{
+	width: 15%;
+	height: 180px;
+	border: 2px solid black;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.footer
+{
+	width: 100%;
+	height: 300px;
+	background-color: #0085FF;
+}
+
+.line
+{
+	width: 100%;
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+    justify-content: space-between;
+}
+
+.logo_f
+{
+	width: 60px;
+	height: 60px;
+	background-image: url(../img/logo.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	border-radius: 50px;
+}
+
+.soc
+{
+	width: 20%;
+	display: flex;
+	flex-direction: row;
+    justify-content: space-around;
+}
+
+.vk
+{
+	width: 60px;
+	height: 60px;
+	background-image: url(../img/vk.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+
+.tg
+{
+	width: 60px;
+	height: 60px;
+	background-image: url(../img/tg.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+.menu_f
+{
+	display: flex;
+	flex-direction: column;
+}
+
+img
+{
+	width: 50px;
+	height: 50px;
+}
+
+.menchik
+{
+	display: flex;
+	flex-direction: row;
+    justify-content: space-evenly;
+}
