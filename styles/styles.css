@@ -1,0 +1,497 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Century Gothic';
+}
+
+.main
+{
+    margin: 0 20%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.title
+{
+    margin-top: 15%;
+    margin-bottom: 10%;
+    color: #0085FF;
+}
+
+.auth-form{
+    min-width: 40%;
+}
+.form-buy{
+    min-width: 40%;
+}
+
+.auth-form form
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    align-content: center;
+    justify-content: center;
+}
+
+.form-buy form
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: center;
+}
+
+.auth-form form input[type=email],
+.auth-form form input[type=text],
+.auth-form form input[type=password],
+.auth-form form input[type=number],
+.auth-form form input[type=submit]
+{
+    min-width: 100%;
+    padding-left: 5%;
+    padding-bottom: 6%;
+    padding-top: 6%;
+    margin-bottom: 8%;
+    border: 1px solid #D0D6E1;
+    border-radius: 10px;
+}
+.form-buy form input[type=email],
+.form-buy form input[type=text],
+.form-buy form input[type=password],
+.form-buy form input[type=number],
+.form-buy form input[type=submit],
+.form-buy form input[type=button]
+{
+    min-width: 100%;
+    padding-left: 5%;
+    padding-bottom: 6%;
+    padding-top: 6%;
+    margin-bottom: 8%;
+    border: 1px solid #D0D6E1;
+    border-radius: 10px;
+}
+
+.auth-form form a
+{
+    margin-bottom: 8%;
+    color: #000;
+    text-decoration: none;
+}
+
+.auth-form form a:hover
+{
+    color: #0085FF;
+    transition: 0.3s all;
+}
+
+.auth-form form input::-webkit-input-placeholder {
+    color: #D0D6E1;
+    font-size: 14px;
+} 
+
+.auth-form form input::-moz-placeholder {
+    color: #D0D6E1;
+    font-size: 14px;
+}
+
+.form-buy form input::-webkit-input-placeholder {
+    color: #D0D6E1;
+    font-size: 14px;
+} 
+
+.form-buy form input::-moz-placeholder {
+    color: #D0D6E1;
+    font-size: 14px;
+}
+
+.auth-form form input[type=submit]{
+    background-color: #0085FF;
+    color: #fff;
+    font-size: 14px;
+    border: 1px solid #0085FF;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.auth-form form input[type=submit]:hover
+{
+    background-color: transparent;
+    color: #0085FF;
+    transition: 0.3s all;
+}
+
+.auth-form form input[type=email]:focus,
+.auth-form form input[type=password]:focus,
+.auth-form form input[type=text]:focus,
+.auth-form form input[type=number]:focus
+{
+    outline: none;
+}
+
+.form-buy form input[type=submit]{
+    background-color: #0085FF;
+    color: #fff;
+    font-size: 14px;
+    border: 1px solid #0085FF;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.form-buy form input[type=submit]:hover
+{
+    background-color: transparent;
+    color: #0085FF;
+    transition: 0.3s all;
+}
+
+.form-buy form input[type=button]{
+    background-color: #0085FF;
+    color: #fff;
+    font-size: 14px;
+    border: 1px solid #0085FF;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.form-buy form input[type=button]:hover
+{
+    background-color: transparent;
+    color: #0085FF;
+    transition: 0.3s all;
+}
+
+.form-buy form input[type=email]:focus,
+.form-buy form input[type=password]:focus,
+.form-buy form input[type=text]:focus,
+.form-buy form input[type=number]:focus
+{
+    outline: none;
+}
+
+.form-buy label
+{
+    margin-bottom: 8%;
+}
+
+.v_pass_now
+{
+    position: relative;
+    min-width: 100%;
+}
+
+.v_pass
+{
+    position: relative;
+    min-width: 100%;
+}
+
+.v_pass_reply
+{
+    position: relative;
+    min-width: 100%;
+}
+
+.icon
+{
+    background: url('../free-icon-eye-158746.png') no-repeat;
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin-left: 90%;
+    margin-top: 5%;
+}
+
+.icon_reply
+{
+    background: url('../free-icon-eye-158746.png') no-repeat;
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin-left: 90%;
+    margin-top: 5%;
+}
+
+.icon_now
+{
+    background: url('../free-icon-eye-158746.png') no-repeat;
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin-left: 90%;
+    margin-top: 5%;
+}
+
+.checkbox {
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: none;
+  }
+  
+  .checkbox-label {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 30px;
+    border-radius: 20px;
+    background: #D0D6E1;
+  }
+  
+  .checkbox-label:before {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    display: block;
+    content: "";
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #fff;
+    transition: .3s;
+  }
+  
+  .checkbox:checked + .checkbox-label {
+    background-color: #0085FF;
+  }
+  
+  .checkbox:checked + .checkbox-label:before {
+    left: calc(100% - 30px);
+  }
+
+#Price2
+{
+    display: none;
+}
+
+.private_data
+{
+    font-size: 24px;
+    color: #fff;
+}
+
+.data
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    background: #0085FF;
+    padding: 5%;
+    border-radius: 10px;
+}
+
+.lk_form
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.first_input{
+    margin-top: 5%;
+}
+
+.first_input input
+{
+    min-width: 28%;
+    height: 40px;
+    padding-left: 10px;
+}
+
+.first_input input::-webkit-input-placeholder {
+    color: #D0D6E1;
+    font-size: 14px;
+} 
+
+.first_input input::-moz-placeholder {
+    color: #D0D6E1;
+    font-size: 14px;
+}
+
+.second_input input::-webkit-input-placeholder {
+    color: #D0D6E1;
+    font-size: 14px;
+} 
+
+.second_input input::-moz-placeholder {
+    color: #D0D6E1;
+    font-size: 14px;
+}
+
+.second_input
+{
+    width: 100%;
+    margin-top: 5%;
+}
+
+.second_input input
+{
+    min-width: calc(49.5% + 0.4px) ;
+    height: 40px;
+    padding-left: 10px;
+}
+
+.center_input
+{
+    /* margin: 0 25px 0 25px; */
+}
+
+.first_in
+{
+    /* margin-right: 25px; */
+}
+
+.lk_form > input[type=submit]{
+    margin-top: 5%;
+    width: 100%;
+}
+
+.lk_form > input,
+.first_input > input,
+.second_input > input
+{
+    border-radius: 10px;
+}
+
+.first_input > input:focus,
+.second_input > input:focus
+{
+    outline: none;
+}
+
+.first_input > input,
+.second_input > input
+{
+    border: 1px solid #D0D6E1;
+}
+
+.lk_form > input
+{
+    background: #fff;
+    color: #0085FF;
+    border: 1px solid #fff;
+    transition: 0.3s all;
+    height: 40px;
+}
+
+.lk_form > input:hover
+{
+    background: transparent;
+    color: #fff;
+    transition: 0.3s all;
+}
+
+.auth_block
+{
+    background: #0085FF;
+    padding: 5%;
+    border-radius: 10px;
+    margin-top: 5%;
+}
+
+.save
+{
+    background: #fff!important;
+    color: #0085FF!important;
+    border: 1px solid #fff!important;
+}
+
+.save:hover
+{
+    background: transparent!important;
+    color: #fff!important;
+}
+
+.auth_data
+{
+    margin-top: 15%;
+}
+
+.exit_lk
+{
+    color: #0085FF;
+    transition: 0.3s all!important;
+    height: 20px;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.exit_lk:hover
+{
+    text-decoration: none!important;
+    filter: brightness(0.5)!important;
+    color: #0085FF!important;
+    transition: 0.3s all!important;
+}
+
+.buy_bil .private_data
+{
+    color: #0085FF!important;
+    margin-top: 15%;
+}
+
+.users .private_data
+{
+    color: #0085FF!important;
+    margin-top: 15%;
+}
+
+.sales .private_data
+{
+    color: #0085FF!important;
+    margin-top: 15%;
+}
+
+
+.flights .private_data
+{
+    color: #0085FF!important;
+    margin-top: 15%;
+}
+
+.add_flights
+{
+    color: #0085FF;
+}
+
+.add_flights_form
+{
+    display: flex;
+    align-items: flex-start!important;
+}
+
+.add_flights_form input[type=date],
+.add_flights_form input[type=time]
+{
+    min-width: 100%;
+    margin-bottom: 5%;
+}
