@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Авторизация</title>
+</head>
+<body>
+    <div class="main">
+        <div class="title">
+            <h1>Покупка билета</h1>
+        </div>
+        <div class="form-buy">
+            <form action="POST">
+                <input type="text" placeholder="First name">
+                <input type="text" placeholder="Last name">
+                <input type="text" placeholder="Patronymic">
+                <input type="email" name="" id="" placeholder="Email" required>
+                <input type="text" placeholder="Phone">
+                <input type="number" placeholder="Adult" id="Adult" min="1" value="1">
+                <input type="number" placeholder="Children" id="Children">
+                <p>Багаж</p>
+                <input type="checkbox" id="checkbox" class="checkbox">
+                <label for="checkbox" class="checkbox-label"></label>
+                <input type="text" readonly value="6500" id="Price">
+                <input type="text" readonly value="6500" id="Price2">
+                <input type="button" value="Посчитать стоимость" id="set_price">
+                <input type="submit" value="Купить">
+            </form>
+        </div>
+    </div>
+</body>
+<script src="../scripts/js.js"></script>
+</html>
