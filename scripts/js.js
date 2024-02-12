@@ -2,10 +2,10 @@ $('.icon').click(function(){
     $('.icon').toggleClass('visible');
     if ($(this).hasClass('visible')) {
         $('#password').attr('type', 'text');
-        $(this).css('background-image', 'url("free-icon-hide-2767146.png")');
+        $(this).css('background-image', 'url("../img/free-icon-hide-2767146.png")');
     }else{
         $('#password').attr('type', 'password');
-        $(this).css('background-image', 'url("free-icon-eye-158746.png")');
+        $(this).css('background-image', 'url("../img/free-icon-hide-2767146.png")');
     }
 });
 
@@ -13,10 +13,10 @@ $('.icon_reply').click(function(){
     $(this).toggleClass('visible');
     if ($(this).hasClass('visible')) {
         $('#password_reply').attr('type', 'text');
-        $(this).css('background-image', 'url("free-icon-hide-2767146.png")');
+        $(this).css('background-image', 'url("../img/free-icon-hide-2767146.png")');
     }else{
         $('#password_reply').attr('type', 'password');
-        $(this).css('background-image', 'url("free-icon-eye-158746.png")');
+        $(this).css('background-image', 'url("../img/free-icon-hide-2767146.png")');
     }
 });
 
@@ -24,10 +24,10 @@ $('.icon_now').click(function(){
     $(this).toggleClass('visible');
     if ($(this).hasClass('visible')) {
         $('#password_now').attr('type', 'text');
-        $(this).css('background-image', 'url("free-icon-hide-2767146.png")');
+        $(this).css('background-image', 'url("../img/free-icon-hide-2767146.png")');
     }else{
         $('#password_now').attr('type', 'password');
-        $(this).css('background-image', 'url("free-icon-eye-158746.png")');
+        $(this).css('background-image', 'url("../img/free-icon-hide-2767146.png")');
     }
 });
 
