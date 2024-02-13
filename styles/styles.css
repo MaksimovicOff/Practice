@@ -302,7 +302,9 @@ img
 .auth-form form input[type=text],
 .auth-form form input[type=password],
 .auth-form form input[type=number],
-.auth-form form input[type=submit]
+.auth-form form input[type=submit],
+.auth-form form input[type=date],
+.auth-form form input[type=time]
 {
     min-width: 100%;
     padding-left: 5%;
@@ -317,7 +319,8 @@ img
 .form-buy form input[type=password],
 .form-buy form input[type=number],
 .form-buy form input[type=submit],
-.form-buy form input[type=button]
+.form-buy form input[type=button],
+.form-buy form select
 {
     min-width: 100%;
     padding-left: 5%;
@@ -326,6 +329,11 @@ img
     margin-bottom: 8%;
     border: 1px solid #D0D6E1;
     border-radius: 10px;
+}
+
+.form-buy form select option
+{
+    padding: 1rem;
 }
 
 .auth-form form a
@@ -705,18 +713,21 @@ img
 {
     color: #0085FF!important;
     margin-top: 15%;
+    text-align: center;
 }
 
 .users .private_data
 {
     color: #0085FF!important;
     margin-top: 15%;
+    text-align: center;
 }
 
 .sales .private_data
 {
     color: #0085FF!important;
     margin-top: 15%;
+    text-align: center;
 }
 
 
@@ -724,17 +735,21 @@ img
 {
     color: #0085FF!important;
     margin-top: 15%;
+    text-align: center;
 }
 
 .add_flights
 {
     color: #0085FF;
+    text-align: center;
 }
 
 .add_flights_form
 {
     display: flex;
     align-items: flex-start!important;
+    max-width: 40%;
+    margin: 8% auto;
 }
 
 .add_flights_form input[type=date],
@@ -757,7 +772,7 @@ td
 {
     min-width: 70px;
     height: 100%;
-    padding: 0.75rem!important;
+    padding: 1rem!important;
     border-top: 1px solid #dee2e6;
 }
 
@@ -796,4 +811,22 @@ table
 {
     border-spacing: 0px 0px;
     width: 100%;
+}
+
+.error
+{
+    color: #D8000C;
+    background-color: #FFBABA;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.success
+{
+    color: #270;
+    background-color: #DFF2BF;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 10px;
 }
