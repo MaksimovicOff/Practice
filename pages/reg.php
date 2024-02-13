@@ -30,7 +30,7 @@
                 </div>
                 <input type="text" placeholder="Phone" name="Phone" required>
                 <input type="submit" value="Зарегистрироваться" name="Reg">
-                <input type="submit" value="Войти" onclick="window.location.href='auth.html'">
+                <input type="submit" value="Войти" onclick="window.location.href='auth.php'">
             </form>
         </div>
     </div>
