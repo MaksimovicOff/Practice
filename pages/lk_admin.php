@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 include_once '../db/db.php';
 ?>
 <!DOCTYPE html>
@@ -103,6 +104,78 @@ include_once '../db/db.php';
         </div>
         <div class="buy_bil">
             <div class="private_data"><p>Ваши купленные билеты</p></div>
+            <?php
+            $now_email = $_SESSION['user']['email'];
+            $str_out_sales = "SELECT * FROM `sales` WHERE `email` = '$now_email'";
+            $run_out_sales = mysqli_query($connect, $str_out_sales);
+            $delete_sales = $_GET['del_sales'];
+            $str_delete_sales = "DELETE FROM `sales` WHERE `id` = $delete_sales";
+            $run_delete_sales = mysqli_query($connect, $str_delete_sales);
+            ?>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Отчество</th>
+                    <th>Email</th>
+                    <th>Телефон</th>
+                    <th>Количество взрослых</th>
+                    <th>Количество детей</th>
+                    <th>Класс самолёта</th>
+                    <th>ID рейса</th>
+                    <th>Роль клиента</th>
+                    <th>Цена</th>
+                    <th colspan="2">Действия</th>
+                </tr>
+                <?php
+                while ($sales = mysqli_fetch_array($run_out_sales)) {
+                    switch ($sales['class']) {
+                        case '1':
+                            $class = "Эконом";
+                            break;
+                        case '2':
+                            $class = "Бизнес";
+                            break;
+                        
+                        default:
+                            # code...
+                            break;
+                    }
+                    switch ($sales['role_sales_id']) {
+                        case '1':
+                            $role_sales = "Клиент";
+                            break;
+                        case '2':
+                            $role_sales = "Постоянный клиент";
+                            break;
+                        case '3':
+                            $role_sales = "Сотрудник компании";
+                            break;
+                        
+                        default:
+                            # code...
+                            break;
+                    }
+                    echo "<tr class='e-ever2'>
+                            <td>$sales[id]</td>
+                            <td>$sales[first_name]</td>
+                            <td>$sales[last_name]</td>
+                            <td>$sales[patronymic]</td>
+                            <td>$sales[email]</td>
+                            <td>$sales[phone]</td>
+                            <td>$sales[adult]</td>
+                            <td>$sales[children]</td>
+                            <td>$class</td>
+                            <td>$sales[id_flights]</td>
+                            <td>$role_sales</td>
+                            <td>$sales[price]</td>
+                            <td><a href='update_sales.php?edit_sales=$sales[id]' target='_blank' class='e-update'>Обновить</a></td>
+                            <td><a href='?del_sales=$sales[id]' class='e-delete'>Удалить</a></td>
+                        </tr>";
+                }
+                ?>
+            </table>
         </div>
         <div class="users">
             <div class="private_data"><p>Пользователи</p></div>
@@ -128,6 +201,32 @@ include_once '../db/db.php';
                 </tr>
                 <?php
                 while ($users = mysqli_fetch_array($run_out_users)) {
+                    switch ($users['role']) {
+                        case '1':
+                            $role = "Пользователь";
+                            break;
+                        case '2':
+                            $role = "Администратор";
+                            break;
+                        default:
+                            # code...
+                            break;
+                    }
+                    switch ($users['role_sales']) {
+                        case '1':
+                            $role_sales = "Клиент";
+                            break;
+                        case '2':
+                            $role_sales = "Постоянный клиент";
+                            break;
+                        case '3':
+                            $role_sales = "Сотрудник компании";
+                            break;
+                        
+                        default:
+                            # code...
+                            break;
+                    }
                     echo "<tr align='center' class='e-ever2'>
                             <td>$users[id]</td>
                             <td>$users[first_name]</td>
@@ -136,8 +235,8 @@ include_once '../db/db.php';
                             <td>$users[email]</td>
                             <td>$users[phone]</td>
                             <td>$users[password]</td>
-                            <td>$users[role]</td>
-                            <td>$users[role_sales]</td>
+                            <td>$role</td>
+                            <td>$role_sales</td>
                             <td><a href='update_users.php?edit=$users[id]' target='_blank' class='e-update'>Обновить</a></td>
                             <td><a href='?del=$users[id]' class='e-delete'>Удалить</a></td>
                         </tr>";
@@ -147,26 +246,154 @@ include_once '../db/db.php';
         </div>
         <div class="flights">
             <div class="private_data"><p>Рейсы</p></div>
+            <?php
+            $str_out_flights = "SELECT * FROM `flights`";
+            $run_out_flights = mysqli_query($connect, $str_out_flights);
+            $del_flights = $_GET['del_flights'];
+            $str_delete_flights = "DELETE FROM `flights` WHERE `id` = $del_flights";
+            $run_delete_flights = mysqli_query($connect, $str_delete_flights);
+            ?>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Откуда</th>
+                    <th>Куда</th>
+                    <th>Дата вылета</th>
+                    <th>Дата прилета</th>
+                    <th>Время вылета</th>
+                    <th>Время прилета</th>
+                    <th>Цена</th>
+                    <th colspan="2">Действия</th>
+                </tr>
+                <?php
+                while($flights = mysqli_fetch_array($run_out_flights)){
+                    echo "<tr align='center' class='e-ever2'>
+                            <td>$flights[id]</td>
+                            <td>$flights[whence]</td>
+                            <td>$flights[wheres]</td>
+                            <td>$flights[ddate]</td>
+                            <td>$flights[adate]</td>
+                            <td>$flights[etime]</td>
+                            <td>$flights[atime]</td>
+                            <td>$flights[price]</td>
+                            <td><a href='update_flights.php?edit_flights=$flights[id]' target='_blank' class='e-update'>Обновить</a></td>
+                            <td><a href='?del_flights=$flights[id]' class='e-delete'>Удалить</a></td>
+                        </tr>";
+                }
+                ?>
+            </table>
             <div class="auth-form">
                 <h3 class="add_flights">Добавить рейс</h3>
-                <form action="POST" class="add_flights_form">
-                    <input type="text" placeholder="Откуда">
-                    <input type="text" placeholder="Куда">
+                <form method="POST" class="add_flights_form">
+                    <input type="text" placeholder="Откуда" name="whence">
+                    <input type="text" placeholder="Куда" name="wheres">
                     <p>Дата вылета</p>
-                    <input type="date">
+                    <input type="date" name="e-date">
                     <p>Дата прилета</p>
-                    <input type="date">
+                    <input type="date" name="a-date">
                     <p>Время вылета</p>
-                    <input type="time">
+                    <input type="time" name="e-time">
                     <p>Время прилета</p>
-                    <input type="time">
-                    <input type="text" placeholder="Цена">
-                    <input type="submit" value="Добавить">
+                    <input type="time" name="a-time">
+                    <input type="text" placeholder="Цена" name="price">
+                    <input type="submit" value="Добавить" name="add_flights">
+                    <?php
+                    $whence = $_POST['whence'];
+                    $wheres = $_POST['wheres'];
+                    $edate = $_POST['e-date'];
+                    $adate = $_POST['a-date'];
+                    $etime = $_POST['e-time'];
+                    $atime = $_POST['a-time'];
+                    $price = $_POST['price'];
+                    $add_flights = $_POST['add_flights'];
+                    $str_add_flights = "INSERT INTO `flights` (`whence`, `wheres`, `ddate`, `adate`, `etime`, `atime`, `price`) VALUES ('$whence', '$wheres', '$edate', '$adate', '$etime', '$atime', '$price');";
+                    if ($add_flights) {
+                        $run_add_flights = mysqli_query($connect, $str_add_flights);
+                        if ($run_add_flights) {
+                            echo "<p class='success'>Вы успешно добавили рейс!</p>";
+                        }
+                        else
+                        {
+                            echo "<p class='error'>Что-то пошло не так!</p>";
+                        }
+                    }
+                    ?>
                 </form>
             </div>
         </div>
         <div class="sales">
             <div class="private_data"><p>Покупки</p></div>
+            <?php
+            $str_out_sales = "SELECT * FROM `sales`";
+            $run_out_sales = mysqli_query($connect, $str_out_sales);
+            $delete_sales = $_GET['del_sales'];
+            $str_delete_sales = "DELETE FROM `sales` WHERE `id` = $delete_sales";
+            $run_delete_sales = mysqli_query($connect, $str_delete_sales);
+            ?>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Отчество</th>
+                    <th>Email</th>
+                    <th>Телефон</th>
+                    <th>Количество взрослых</th>
+                    <th>Количество детей</th>
+                    <th>Класс самолёта</th>
+                    <th>ID рейса</th>
+                    <th>Роль клиента</th>
+                    <th>Цена</th>
+                    <th colspan="2">Действия</th>
+                </tr>
+                <?php
+                while ($sales = mysqli_fetch_array($run_out_sales)) {
+                    switch ($sales['class']) {
+                        case '1':
+                            $class = "Эконом";
+                            break;
+                        case '2':
+                            $class = "Бизнес";
+                            break;
+                        
+                        default:
+                            # code...
+                            break;
+                    }
+                    switch ($sales['role_sales_id']) {
+                        case '1':
+                            $role_sales = "Клиент";
+                            break;
+                        case '2':
+                            $role_sales = "Постоянный клиент";
+                            break;
+                        case '3':
+                            $role_sales = "Сотрудник компании";
+                            break;
+                        
+                        default:
+                            # code...
+                            break;
+                    }
+                    echo "<tr class='e-ever2'>
+                            <td>$sales[id]</td>
+                            <td>$sales[first_name]</td>
+                            <td>$sales[last_name]</td>
+                            <td>$sales[patronymic]</td>
+                            <td>$sales[email]</td>
+                            <td>$sales[phone]</td>
+                            <td>$sales[adult]</td>
+                            <td>$sales[children]</td>
+                            <td>$class</td>
+                            <td>$sales[id_flights]</td>
+                            <td>$role_sales</td>
+                            <td>$sales[price]</td>
+                            <td><a href='update_sales.php?edit_sales=$sales[id]' target='_blank' class='e-update'>Обновить</a></td>
+                            <td><a href='?del_sales=$sales[id]' class='e-delete'>Удалить</a></td>
+                        </tr>";
+                }
+                ?>
+            </table>
         </div>
     </div>
 </body>
