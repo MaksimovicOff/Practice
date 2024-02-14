@@ -304,7 +304,8 @@ img
 .auth-form form input[type=number],
 .auth-form form input[type=submit],
 .auth-form form input[type=date],
-.auth-form form input[type=time]
+.auth-form form input[type=time],
+.auth-form form select
 {
     min-width: 100%;
     padding-left: 5%;
@@ -714,6 +715,7 @@ img
     color: #0085FF!important;
     margin-top: 15%;
     text-align: center;
+    margin-bottom: 5%;
 }
 
 .users .private_data
@@ -721,6 +723,7 @@ img
     color: #0085FF!important;
     margin-top: 15%;
     text-align: center;
+    margin-bottom: 5%;
 }
 
 .sales .private_data
@@ -728,6 +731,15 @@ img
     color: #0085FF!important;
     margin-top: 15%;
     text-align: center;
+    margin-bottom: 5%;
+}
+
+.reviews .private_data
+{
+    color: #0085FF!important;
+    margin-top: 15%;
+    text-align: center;
+    margin-bottom: 5%;
 }
 
 
@@ -736,12 +748,15 @@ img
     color: #0085FF!important;
     margin-top: 15%;
     text-align: center;
+    margin-bottom: 5%;
 }
 
 .add_flights
 {
     color: #0085FF;
     text-align: center;
+    margin-bottom: 5%;
+    margin-bottom: 15%;
 }
 
 .add_flights_form
@@ -811,6 +826,7 @@ table
 {
     border-spacing: 0px 0px;
     width: 100%;
+    text-align: center;
 }
 
 .error
@@ -829,4 +845,174 @@ table
     padding: 1rem;
     text-align: center;
     border-radius: 10px;
+}
+
+.reviews
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.e-reviews
+{
+    background-color: #D0D6E1;
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 14px;
+    border-radius: 10px;
+    margin-bottom: 5%;
+}
+
+.e-name
+{
+    padding: 2% 10% 0 5%;
+    width: 150px;
+}
+
+.e-content
+{
+    padding-top: 2%;
+    width: 150px;
+}
+
+.e-actions
+{
+    padding: 2% 0 0 40%;
+}
+
+.reject
+{
+    color: #ff0000;
+    text-decoration: none;
+    transition: 0.3s all;
+}
+
+.reject:hover
+{
+    text-decoration: none;
+    color: #ff0000;
+    filter: brightness(0.5);
+    transition: 0.3s all;
+}
+
+.approve
+{
+    color: #3dbd3d;
+    text-decoration: none;
+    transition: 0.3s all;
+    margin-right: 10%;
+}
+
+.approve:hover
+{
+    color: #3dbd3d;
+    text-decoration: none;
+    filter: brightness(0.5);
+    transition: 0.3s all;
+}
+
+.status-reviews
+{
+    padding-left: 5%;
+    padding-top: 2%;
+}
+
+.out_main
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.out
+{
+    background-color: #0085FF;
+    display: flex;
+    flex-direction: column;
+    margin: 0 15%;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    color: #fff;
+    padding: 5%;
+    margin-bottom: 5%;
+}
+
+.out_form a
+{
+    background-color: #fff;
+    border-radius: 10px;
+    color: #0085FF;
+    border: 1px solid #fff;
+    padding: 1% 5%;
+    transition: 0.3s all;
+}
+
+.out_form a:hover
+{
+    background: transparent;
+    color: #fff;
+    transition: 0.3s all;
+    text-decoration: none;
+}
+
+.out_price
+{
+    font-size: 24px;
+}
+
+.out_buy
+{
+    text-align: center;
+    margin-top: 5%;
+}
+
+#role
+{
+    display: none;
+}
+
+.e-h1
+{
+    color: #0085FF;
+    margin-bottom: 5%;
+}
+
+.e-sad
+{
+    color: #0085FF;
+}
+
+.e-back-sad
+{
+    text-align: center;
+    display: flex;
+    background: #0085FF;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 45%;
+    padding: 1% 0;
+    border: 1px solid #0085FF;
+    transition: 0.3s all;
+}
+
+.e-back-sad:hover
+{
+    text-decoration: none;
+    color: #0085FF;
+    background-color: #fff;
+    transition: 0.3s all;
 }
