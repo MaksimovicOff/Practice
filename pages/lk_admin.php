@@ -263,10 +263,38 @@ include_once '../db/db.php';
                     <th>Время вылета</th>
                     <th>Время прилета</th>
                     <th>Цена</th>
+                    <th>Статус рейса</th>
                     <th colspan="2">Действия</th>
                 </tr>
                 <?php
                 while($flights = mysqli_fetch_array($run_out_flights)){
+                    switch ($flights['status']) {
+                        case '1':
+                            $status = "В ожидании";
+                            break;
+                        case '2':
+                            $status = "Регистрация открыта";
+                            break;
+                        case '3':
+                            $status = "Регистрация закрыта";
+                            break;
+                        case '4':
+                            $status = "Отложен";
+                            break;
+                        case '5':
+                            $status = "Отменен";
+                            break;
+                        case '6':
+                            $status = "В полёте";
+                            break;
+                        case '7':
+                            $status = "Успешен";
+                            break;
+                        
+                        default:
+                            # code...
+                            break;
+                    }
                     echo "<tr align='center' class='e-ever2'>
                             <td>$flights[id]</td>
                             <td>$flights[whence]</td>
@@ -276,6 +304,7 @@ include_once '../db/db.php';
                             <td>$flights[etime]</td>
                             <td>$flights[atime]</td>
                             <td>$flights[price]</td>
+                            <td class='e-status'>$status</td>
                             <td><a href='update_flights.php?edit_flights=$flights[id]' target='_blank' class='e-update'>Обновить</a></td>
                             <td><a href='?del_flights=$flights[id]' class='e-delete'>Удалить</a></td>
                         </tr>";
@@ -394,6 +423,52 @@ include_once '../db/db.php';
                 }
                 ?>
             </table>
+        </div>
+        <div class="reviews">
+            <div class="private_data"><p>Отзывы</p></div>
+            
+                <?php
+                $str_out_reviews = "SELECT * FROM `reviews`";
+                $run_out_reviews = mysqli_query($connect, $str_out_reviews);
+                $approve_reviews = $_GET['approve'];
+                $str_update_status_reviews = "UPDATE `reviews` SET
+                `status` = 2
+                WHERE `id` = $approve_reviews";
+                $run_update_reviews = mysqli_query($connect, $str_update_status_reviews);
+                $reject_reviews = $_GET['reject'];
+                $str_reject_reviews = "UPDATE `reviews` SET
+                `status` = 3
+                WHERE `id` = $reject_reviews";
+                $run_reject_reviews = mysqli_query($connect, $str_reject_reviews);
+                while ($reviews = mysqli_fetch_array($run_out_reviews)) {
+                    switch ($reviews['status']) {
+                        case '1':
+                            $status_reviews = "На модерации";
+                            break;
+                        case '2':
+                            $status_reviews = "Одобрен";
+                            break;
+                        case '3':
+                            $status_reviews = "Отклонен";
+                            break;
+                        
+                        default:
+                            # code...
+                            break;
+                    }
+                    $str_out_reviews_user = "SELECT * FROM `users` WHERE `id` = $reviews[id_user]";
+                    $run_out_rewiews_user = mysqli_query($connect, $str_out_reviews_user);
+                    $users_reviews = mysqli_fetch_array($run_out_rewiews_user);
+                    echo "<div class='e-reviews'>
+                        <div class='e-name'><p>$users_reviews[first_name]</p></div>
+                        <div class='e-content'><p>$reviews[content]</p></div>
+                        <div class='e-actions'><p><a href='?approve=$reviews[id]' class='approve'>Одобрить</a><a href='?reject=$reviews[id]' class='reject'>Отклонить</a></p></div>
+                        <div class='status-reviews'><p>Статус: $status_reviews</p></div>
+                        </div>";
+                }
+                ?>
+                
+            
         </div>
     </div>
 </body>
