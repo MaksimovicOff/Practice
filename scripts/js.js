@@ -98,4 +98,3 @@ $('#set_price').click(function(){
     console.log($('.checkbox').is(":checked"));
     // console.log($('#Price').val());
 })
-
