@@ -51,7 +51,8 @@
                                 "email" => $user['email'],
                                 "password" => $user['password'],
                                 "phone" => $user['phone'],
-                                "role" => $user['role']
+                                "role" => $user['role'],
+                                "role_sales" => $user['role_sales']
                             ];
                             if ($_SESSION['user']['role'] == '1') {
                                 header("Location:lk_user.php");

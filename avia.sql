@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 13 2024 г., 10:48
+-- Время создания: Фев 14 2024 г., 12:31
 -- Версия сервера: 8.0.24
 -- Версия PHP: 8.0.8
 
@@ -31,22 +31,46 @@ CREATE TABLE `flights` (
   `id` int NOT NULL,
   `whence` varchar(100) NOT NULL,
   `wheres` varchar(100) NOT NULL,
-  `ddate` date NOT NULL,
-  `adate` date NOT NULL,
+  `ddate` varchar(100) NOT NULL,
+  `adate` varchar(100) NOT NULL,
   `etime` text NOT NULL,
   `atime` text NOT NULL,
-  `price` int NOT NULL
+  `price` int NOT NULL,
+  `status` int NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Дамп данных таблицы `flights`
 --
 
-INSERT INTO `flights` (`id`, `whence`, `wheres`, `ddate`, `adate`, `etime`, `atime`, `price`) VALUES
-(1, 'Ижевск1', 'Москва1', '2024-02-15', '2024-02-17', '03:00', '08:00', 8500),
-(2, 'Ижевск', 'Москва', '2024-02-14', '2024-02-15', '10:00', '20:00', 7000),
-(4, 'Мурманск', 'Казань', '2024-02-23', '2024-02-27', '13:00', '04:00', 5800),
-(5, 'Нижний Новгород', 'Нижний Тагил', '2024-03-07', '2024-03-10', '16:00', '18:35', 4500);
+INSERT INTO `flights` (`id`, `whence`, `wheres`, `ddate`, `adate`, `etime`, `atime`, `price`, `status`) VALUES
+(1, 'Ижевск1', 'Москва1', '2024-02-15', '2024-02-17', '03:00', '08:00', 8500, 1),
+(2, 'Ижевск', 'Москва', '2024-02-14', '2024-02-15', '10:00', '20:00', 7000, 1),
+(4, 'Мурманск', 'Казань', '2024-02-23', '2024-02-27', '13:00', '04:00', 5800, 2),
+(5, 'Нижний Новгород', 'Нижний Тагил', '2024-03-07', '2024-03-10', '16:00', '18:35', 4500, 7),
+(6, 'Ижевск', 'Москва', '2024-02-14', '2024-02-29', '13:49', '14:51', 3000, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` int NOT NULL,
+  `id_user` int NOT NULL,
+  `content` varchar(100) NOT NULL,
+  `status` int NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Дамп данных таблицы `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `id_user`, `content`, `status`) VALUES
+(1, 1, '2321321', 2),
+(2, 3, 'asdasdsadd', 3),
+(3, 1, 'фыфыфыфыфыфыфыфыфыфыфы', 2);
 
 -- --------------------------------------------------------
 
@@ -76,7 +100,9 @@ CREATE TABLE `sales` (
 INSERT INTO `sales` (`id`, `first_name`, `last_name`, `patronymic`, `email`, `phone`, `adult`, `children`, `class`, `id_flights`, `role_sales_id`, `price`) VALUES
 (1, 'Egor', 'Khozyashev', 'Dimovich', 'egor@gmail.com', '89999999999', 1, 0, 1, 4, 1, 9600),
 (2, '1', '1', '1', 'admin@admin.ru', '1', 1, 1, 1, 1, 1, 1),
-(5, 'Алексей1', 'Алексеев1', 'Алексеевич1', 'al2eksei@gmail.com', '89408887766', 1, 1, 1, 2, 2, 10920);
+(5, 'Алексей1', 'Алексеев1', 'Алексеевич1', 'al2eksei@gmail.com', '89408887766', 1, 1, 1, 2, 2, 10920),
+(7, 'admin', 'admin', 'admin', 'admin@admin.ru', '89509999999', 2, 1, 2, 6, 3, 8640),
+(8, 'admin', 'admin', 'admin', 'admin@admin.ru', '89509999999', 1, 0, 1, 2, 3, 5600);
 
 -- --------------------------------------------------------
 
@@ -115,6 +141,12 @@ ALTER TABLE `flights`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `sales`
 --
 ALTER TABLE `sales`
@@ -135,13 +167,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `flights`
 --
 ALTER TABLE `flights`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT для таблицы `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `users`

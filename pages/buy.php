@@ -16,11 +16,20 @@
         </div>
         <div class="form-buy">
             <form method="POST">
-                <input type="text" placeholder="First name" name="first_name">
-                <input type="text" placeholder="Last name" name="last_name">
-                <input type="text" placeholder="Patronymic" name="patronymic">
-                <input type="email" name="email" id="" placeholder="Email" required>
-                <input type="text" placeholder="Phone" name="phone">
+                <?php
+                session_start();
+                include_once "../db/db.php";
+                error_reporting(0);
+                $id_flights = $_GET['buy'];
+                $str_out_flights = "SELECT * FROM `flights` WHERE `id` = $id_flights";
+                $run_out_flights = mysqli_query($connect, $str_out_flights);
+                $flights = mysqli_fetch_array($run_out_flights);
+                ?>
+                <input type="text" placeholder="First name" name="first_name" value="<?php echo $_SESSION['user']['first_name']; ?>">
+                <input type="text" placeholder="Last name" name="last_name" value="<?php echo $_SESSION['user']['last_name']; ?>">
+                <input type="text" placeholder="Patronymic" name="patronymic" value="<?php echo $_SESSION['user']['patronymic']; ?>">
+                <input type="email" name="email" id="" placeholder="Email" required value="<?php echo $_SESSION['user']['email']; ?>">
+                <input type="text" placeholder="Phone" name="phone" value="<?php echo $_SESSION['user']['phone']; ?>">
                 <input type="number" placeholder="Adult" id="Adult" min="1" value="1" name="adult">
                 <input type="number" placeholder="Children" id="Children" name="children">
                 <p>Багаж</p>
@@ -31,17 +40,13 @@
                     <option value="1">Эконом</option>
                     <option value="2">Бизнес</option>
                 </select>
-                <input type="text" placeholder="ID рейса" name="id_flights">
-                <input type="number" placeholder="Роль пользователя" id="role" value="1" name="role_sales"> 
-                <input type="text" readonly value="6500" id="Price" name="price">
-                <input type="text" readonly value="6500" id="Price2">
+                <input type="number" placeholder="Роль пользователя" id="role" value="<?php echo $_SESSION['user']['role_sales']; ?>" name="role_sales"> 
+                <input type="text" readonly value="<?php echo $flights['price'] ?>" id="Price" name="price">
+                <input type="text" readonly value="<?php echo $flights['price'] ?>" id="Price2">
                 <input type="button" value="Посчитать стоимость" id="set_price">
                 <input type="submit" value="Купить" name="buy">
             </form>
             <?php
-            session_start();
-            include_once "../db/db.php";
-            error_reporting(0);
             $first_name = $_POST['first_name'];
             $last_name = $_POST['last_name'];
             $patronymic = $_POST['patronymic'];
@@ -50,7 +55,7 @@
             $adult = $_POST['adult'];
             $children = $_POST['children'];
             $class = $_POST['class'];
-            $id_flights = $_POST['id_flights'];
+
             $role_sales = $_POST['role_sales'];
             $price = $_POST['price'];
             $buy = $_POST['buy'];

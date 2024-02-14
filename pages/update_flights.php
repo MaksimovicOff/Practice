@@ -34,6 +34,7 @@ include_once '../db/db.php';
                 $atime = $_POST['atime'];
                 $price = $_POST['price'];
                 $update = $_POST['update'];
+                $status = $_POST['status'];
                 $str_update_user = "UPDATE `flights` SET
                 `whence` = '$whence',
                 `wheres` = '$wheres',
@@ -41,7 +42,8 @@ include_once '../db/db.php';
                 `adate` = '$adate',
                 `etime` = '$etime',
                 `atime` = '$atime',
-                `price` = '$price'
+                `price` = '$price',
+                `status` = '$status'
                 WHERE `id` = $edit";
 
                 if ($update) {
@@ -55,6 +57,15 @@ include_once '../db/db.php';
                 <input type="time" placeholder="Phone" name="etime" required value="<?php echo $users['etime']; ?>">
                 <input type="time" placeholder="Phone" name="atime" required value="<?php echo $users['atime']; ?>">
                 <input type="text" placeholder="Phone" name="price" required value="<?php echo $users['price']; ?>">
+                <select name="status" id="">
+                    <option value="1">В ожидании</option>
+                    <option value="2">Регистрация открыта</option>
+                    <option value="3">Регистрация закрыта</option>
+                    <option value="4">Отложен</option>
+                    <option value="5">Отменен</option>
+                    <option value="6">В полёте</option>
+                    <option value="7">Завершен</option>
+                </select>
                 <input type="submit" value="Обновить" name="update">
             </form>
         </div>
