@@ -49,9 +49,7 @@
             `role_sales_id` = '$role_sales',
             `price` = '$price'
             WHERE `id` = $edit";
-            if ($buy) {
-                $run_update_sales = mysqli_query($connect, $str_update_sales);
-            }
+            
             ?>
                 <input type="text" placeholder="First name" name="first_name" value="<?php echo $sales['first_name']; ?>">
                 <input type="text" placeholder="Last name" name="last_name" value="<?php echo $sales['last_name']; ?>">
@@ -74,6 +72,16 @@
                 <input type="text" readonly value="6500" id="Price2">
                 <input type="button" value="Посчитать стоимость" id="set_price">
                 <input type="submit" value="Обновить" name="buy">
+                <?php
+                if ($buy) {
+                    $run_update_sales = mysqli_query($connect, $str_update_sales);
+                    if ($run_update_sales) {
+                        echo "<p class='success success_update'>Вы успешно обновили данные!</p>";
+                    }else {
+                        echo "<p class='error error_update'>Что-то пошло не так..</p>";
+                    }
+                }
+                ?>
             </form>
         </div>
     </div>
