@@ -58,6 +58,13 @@ a:hover{
     justify-content: space-evenly;
 }
 
+.lk_logo::before{
+    content: "👤 ";
+}
+
+.lk_f_logo::after{
+    content: " 👤";
+}
 
 h1
 {

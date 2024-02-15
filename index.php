@@ -9,28 +9,9 @@
 </head>
 <body>
 	<div class="heads">
-		<div class="header">
-			<div class="logo"></div>
-			<div class="menu">
-				<a href="" class="active__menu__link">Главная</a>
-				<a href="">Отмененнные рейсы</a>
-				<a href="">Расписание</a>
-				<a href="">Отзывы</a>
-				<a href="">О нас</a>
-                <?php
-                session_start();
-                include_once 'db/db.php';
-                error_reporting(0);
-                if ($_SESSION['user']) {
-                ?><a href="pages/lk_admin.php"><?php echo $_SESSION['user']['first_name']; ?></a><?php
-                }else {
-                ?><a href="#modal">Войти</a><?php
-                }
-                ?>
-				
-			</div>
-		</div>
-		
+        <?php
+        include_once 'controllers/header_menu.php';
+        ?>
 		<h1>Найти актуальные билеты</h1>
 		<div class="bilet">
             <form action="pages/out.php" method="post" class="bilet">
