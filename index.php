@@ -206,7 +206,9 @@
                     $str_out_reviews_user = "SELECT * FROM `users` WHERE `id` = $reviews[id_user]";
                     $run_out_rewiews_user = mysqli_query($connect, $str_out_reviews_user);
                     $users_reviews = mysqli_fetch_array($run_out_rewiews_user);
-                    echo "<div class='e-reviews index_reviews'>
+                    echo "
+                    <div class='e-reviews index_reviews'>
+                        <img src='img/ava.png'>
                         <div class='e-name'><p>$users_reviews[first_name]</p></div>
                         <div class='e-content'><p>$reviews[content]</p></div>
                         </div>";
