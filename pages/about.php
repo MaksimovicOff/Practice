@@ -71,13 +71,13 @@
 		</div>
 		<div style="display: flex; flex-direction: column; width: 40%; margin-left: 5%; margin-right: 5%;">
   			<div style="display: flex;">
-    			<div style="width: 80%; height: 70%; border: 5px solid black;"><img src="../img/bashni.jpg" style="width: 100%; height: 100%; object-fit: cover;"></div>
-    			<div style="display: flex; flex-direction: column; justify-content: flex-end;">
-      				<div style="width: 80%; height: 20%; border: 5px solid black;"><img src="../img/pilot.jpg" style="width: 100%; height: 100%; object-fit: cover;"></div>
-      				<div style="width: 80%; height: 20%; border: 5px solid black;"><img src="../img/stuart.jpg" style="width: 100%; height: 100%; object-fit: cover;"></div>
+    			<div style="width: 100%;height: 100%;border: 5px solid white;flex: 2;"><img src="../img/bashni.jpg" style="width: 100%; height: 100%; object-fit: cover;"></div>
+    			<div style="width: 100%;display: flex;flex-direction: column;align-items: flex-end;flex: 2;">
+      				<div style="width: 100%;/* height: 20%; */border: 5px solid white;"><img src="../img/pilot.jpg" style="width: 100%; height: 100%; object-fit: cover;"></div>
+      				<div style="width: 100%;/* height: 20%; */border: 5px solid white;padding-top: 0px;"><img src="../img/stuart.jpg" style="width: 100%; height: 100%; object-fit: cover;"></div>
     			</div>
   			</div>
-  			<div style="width: 100%; height:30%; border: 5px solid black;"><img src="../img/obeda.jpg" style="width: 100%; height: 100%; object-fit: cover;"></div>
+  			<div style="width: 100%;height:30%;border: 5px solid white;"><img src="../img/obeda.jpg" style="width: 100%; height: 100%; object-fit: cover;"></div>
 			</div>
 		</div>
 	<?php
