@@ -22,14 +22,14 @@
 		
 		<h1>Найти актуальные билеты</h1>
 		<div class="bilet">
-			<input type="text" name="otkuda" placeholder="Откуда">
-			<input type="text" name="kuda" placeholder="Куда">
-			<input type="date" name="data" placeholder="Дата вылета">
-			<select>
+			<input type="text" name="otkuda" class="polev" placeholder="Откуда">
+			<input type="text" name="kuda" class="polev" placeholder="Куда">
+			<input type="date" name="data" class="polev" placeholder="Дата вылета">
+			<select class="polev">
 				<option>Бизнес</option>
 				<option>Эконом</option>
 			</select>
-			<input type="submit" name="otkuda" value="Найти билет">
+			<input type="submit" name="otkuda" class="sub" value="Найти билет">
 		</div>
 	</div>
 	<div class="modal" id="modal">
