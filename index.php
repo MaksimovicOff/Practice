@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<title>Авиабилеты</title>
 </head>
 <body>
@@ -11,7 +12,7 @@
 		<div class="header">
 			<div class="logo"></div>
 			<div class="menu">
-				<a href="">Главная</a>
+				<a href="" class="active__menu__link">Главная</a>
 				<a href="">Отмененнные рейсы</a>
 				<a href="">Расписание</a>
 				<a href="">Отзывы</a>
@@ -32,14 +33,16 @@
 		
 		<h1>Найти актуальные билеты</h1>
 		<div class="bilet">
-			<input type="text" name="otkuda" class="polev" placeholder="Откуда">
-			<input type="text" name="kuda" class="polev" placeholder="Куда">
-			<input type="date" name="data" class="polev" placeholder="Дата вылета">
-			<select class="polev">
-				<option>Бизнес</option>
-				<option>Эконом</option>
-			</select>
-			<input type="submit" name="otkuda" class="sub" value="Найти билет">
+            <form action="pages/out.php" method="post" class="bilet">
+                <input type="text" name="Whence" class="polev" placeholder="Откуда">
+                <input type="text" name="Wheres" class="polev" placeholder="Куда">
+                <input type="date" name="data" class="polev" placeholder="Дата вылета">
+                <select class="polev">
+                    <option>Бизнес</option>
+                    <option>Эконом</option>
+                </select>
+                <input type="submit" name="Search" class="sub" value="Найти билет">
+            </form>
 		</div>
 	</div>
 	<div class="modal" id="modal">
@@ -215,4 +218,5 @@
         include_once 'controllers/footer.php';
     ?>
 </body>
+<script src="scripts/js.js"></script>
 </html>
