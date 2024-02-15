@@ -26,7 +26,7 @@
         echo $num_out;
         if ($num_out == 0) {
             echo "<h1 class='e-sad'>К сожалению, ничего не найдено!</h1>
-                <a href='search.php' class='e-back-sad'>Назад</a>";
+                <a href='../index.php' class='e-back-sad'>Назад</a>";
             
         }else {
             while ($flights = mysqli_fetch_array($run_out)) {
