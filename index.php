@@ -9,9 +9,9 @@
 </head>
 <body>
 	<div class="heads">
-        <?php
-        include_once 'controllers/header_menu.php';
-        ?>
+    <?php
+    include_once "controllers/header_menu.php";
+    ?>
 		<h1>Найти актуальные билеты</h1>
 		<div class="bilet">
             <form action="pages/out.php" method="post" class="bilet">
@@ -27,133 +27,48 @@
 		</div>
 	</div>
 	<div class="modal" id="modal">
-            <div class="modal_body">
-                <div class="modal_content">
+        <div class="modal_body">
+            <div class="modal_content">
                 <a href="#" class="modal_close"><img src="img/free-icon-crossed-4219073.png" alt=""></a>
                 <div class="auth-form">
-            <form method="POST">
-                <input type="email" name="email" id="" placeholder="Email" required class="modal_auth_input">
-                <div class="v_pass">
-                    <input type="password" placeholder="Password" id="password" required name="password" class="modal_auth_input">
-                    <span class="icon"></span>
-                </div>
-                <a href="">Забыли пароль?</a>
-                <input type="submit" value="Войти" name="auth">
-                <input type="submit" value="Зарегистрироваться" onclick="window.location.href='#modal_reg'">
-                <?php
-                
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-                $auth = $_POST['auth'];
-                $str_out = "SELECT * FROM `users` WHERE email = '$email' && password = '$password'";
-                $run_out = mysqli_query($connect, $str_out);
-                $num_out = mysqli_num_rows($run_out);
-                    if ($auth) {
-                        if ($num_out == 1) {
-                            $user = mysqli_fetch_array($run_out);
-                            $_SESSION['user'] = [
-                                "id" => $user['id'],
-                                "first_name" => $user['first_name'],
-                                "last_name" => $user['last_name'],
-                                "patronymic" => $user['patronymic'],
-                                "email" => $user['email'],
-                                "password" => $user['password'],
-                                "phone" => $user['phone'],
-                                "role" => $user['role'],
-                                "role_sales" => $user['role_sales']
-                            ];
-                            if ($_SESSION['user']['role'] == '1') {
-                                header("Location:pages/lk_user.php");
-                            }elseif ($_SESSION['user']['role'] == '2') {
-                                header("Location:pages/lk_admin.php");
-                            }
-                        }
-                        else {
-                            echo "<p class='error error_auth'>Неверный логин или пароль</p>";
-                        }
-                    }
-                ?>
-            </form>
-        </div>
+                    <form method="POST" action="pages/auth.php">
+                        <input type="email" name="email" id="" placeholder="Email" required class="modal_auth_input">
+                        <div class="v_pass">
+                            <input type="password" placeholder="Password" id="password" required name="password" class="modal_auth_input">
+                            <span class="icon"></span>
+                        </div>
+                        <a href="">Забыли пароль?</a>
+                        <input type="submit" value="Войти" name="auth">
+                        <input type="submit" value="Зарегистрироваться" onclick="window.location.href='#modal_reg'">
+                        
+                    </form>
                 </div>
             </div>
         </div>
-             <div class="modal" id="modal_reg">
+    </div>
+    <div class="modal" id="modal_reg">
         <div class="modal_body">
             <div class="modal_content modal_content_reg">
-            <a href="#" class="modal_close"><img src="img/free-icon-crossed-4219073.png" alt=""></a>
-            <div class="auth-form">
-            <form method="POST">
-                <input type="text" placeholder="First name" name="FirstName" required class="modal_auth_input">
-                <input type="text" placeholder="Last name" name="LastName" required class="modal_auth_input">
-                <input type="text" placeholder="Patronymic" name="Patronymic" required class="modal_auth_input">
-                <input type="email" name="Email" id="" placeholder="Email" required class="modal_auth_input">
-                <div class="v_pass">
-                    <input type="password" placeholder="Password" id="password" required name="Password" class="modal_auth_input">
-                    <span class="icon"></span>
+                <a href="#" class="modal_close"><img src="img/free-icon-crossed-4219073.png" alt=""></a>
+                <div class="auth-form">
+                    <form method="POST" action="pages/reg.php">
+                        <input type="text" placeholder="First name" name="FirstName" required class="modal_auth_input">
+                        <input type="text" placeholder="Last name" name="LastName" required class="modal_auth_input">
+                        <input type="text" placeholder="Patronymic" name="Patronymic" required class="modal_auth_input">
+                        <input type="email" name="Email" id="" placeholder="Email" required class="modal_auth_input">
+                        <div class="v_pass">
+                            <input type="password" placeholder="Password" id="password" required name="Password" class="modal_auth_input">
+                            <span class="icon"></span>
+                        </div>
+                        <div class="v_pass_reply">
+                            <input type="password" placeholder="Password reply" id="password_reply" required name="ReplyPassword" class="modal_auth_input">
+                            <span class="icon_reply"></span>
+                        </div>
+                        <input type="text" placeholder="Phone" name="Phone" required class="modal_auth_input">
+                        <input type="submit" value="Зарегистрироваться" name="Reg">
+                        <input type="submit" value="Войти" onclick="window.location.href='#modal'">
+                    </form>
                 </div>
-                <div class="v_pass_reply">
-                    <input type="password" placeholder="Password reply" id="password_reply" required name="ReplyPassword" class="modal_auth_input">
-                    <span class="icon_reply"></span>
-                </div>
-                <input type="text" placeholder="Phone" name="Phone" required class="modal_auth_input">
-                <input type="submit" value="Зарегистрироваться" name="Reg">
-                <input type="submit" value="Войти" onclick="window.location.href='#modal'">
-                <?php
-                    $firstname = $_POST['FirstName'];
-                    $lastname = $_POST['LastName'];
-                    $patronymic = $_POST['Patronymic'];
-                    $email = $_POST['Email'];
-                    $password = $_POST['Password'];
-                    $replypassword = $_POST['ReplyPassword'];
-                    $phone = $_POST['Phone'];
-                    $reg = $_POST['Reg'];
-
-                    $str_out_users = "SELECT * FROM `users` WHERE email = '$email'";
-                    $run_out = mysqli_query($connect, $str_out_users);
-                    $num_out = mysqli_num_rows($run_out);
-                    $str_add_users = "INSERT INTO `users` (`first_name`, `last_name`, `patronymic`, `email`, `password`, `phone`) VALUES ('$firstname', '$lastname', '$patronymic', '$email', '$password', '$phone')";
-                        if ($reg) {
-                            if ($num_out == 0) {
-                                if ($password == $replypassword) {
-                                    $run_add_users = mysqli_query($connect, $str_add_users);
-                                    if ($run_add_users) {
-                                        $str_out_user = "SELECT * FROM `users` WHERE email = '$email'";
-                                        $run_out_user = mysqli_query($connect, $str_out_user);
-                                        $user = mysqli_fetch_array($run_out_user);
-                                        $_SESSION['user'] = [
-                                            "id" => $user['id'],
-                                            "first_name" => $user['first_name'],
-                                            "last_name" => $user['last_name'],
-                                            "patronymic" => $user['patronymic'],
-                                            "email" => $user['email'],
-                                            "password" => $user['password'],
-                                            "phone" => $user['phone'],
-                                            "role" => $user['role'],
-                                            "role_sales" => $user['role_sales']
-                                        ];
-                                        if ($_SESSION['user']['role'] == '1') {
-                                            header("Location:pages/lk_user.php");
-                                        }elseif ($_SESSION['user']['role'] == '2') {
-                                            header("Location:pages/lk_admin.php");
-                                        }
-                                        
-                                    }
-                                    else {
-                                        echo "<p class='error error_auth'>Возникла ошибка!</p>";
-                                    }
-                                }
-                                else {
-                                    echo "<p class='error error_auth'>Пароли не совпадают!</p>";
-                                }
-                            }
-                            else {
-                                echo "<p class='error error_auth'>Пользователь с таким email уже существует!</p>";
-                            }
-                        }
-                ?>
-            </form>
-            </div>
             </div>
         </div>
     </div>
