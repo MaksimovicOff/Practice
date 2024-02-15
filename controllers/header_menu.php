@@ -1,7 +1,7 @@
 <div class="header">
 	<div class="logo"></div>
 	<div class="menu">
-		<a href="">Главная</a>
+		<a href="../index.php">Главная</a>
 		<a href="">Отмененнные рейсы</a>
 		<a href="">Расписание</a>
 		<a href="">Отзывы</a>
