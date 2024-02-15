@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<title>Авиабилеты</title>
 </head>
 <body>
@@ -13,14 +14,16 @@
         ?>
 		<h1>Найти актуальные билеты</h1>
 		<div class="bilet">
-			<input type="text" name="otkuda" class="polev" placeholder="Откуда">
-			<input type="text" name="kuda" class="polev" placeholder="Куда">
-			<input type="date" name="data" class="polev" placeholder="Дата вылета">
-			<select class="polev">
-				<option>Бизнес</option>
-				<option>Эконом</option>
-			</select>
-			<input type="submit" name="otkuda" class="sub" value="Найти билет">
+            <form action="pages/out.php" method="post" class="bilet">
+                <input type="text" name="Whence" class="polev" placeholder="Откуда">
+                <input type="text" name="Wheres" class="polev" placeholder="Куда">
+                <input type="date" name="data" class="polev" placeholder="Дата вылета">
+                <select class="polev">
+                    <option>Бизнес</option>
+                    <option>Эконом</option>
+                </select>
+                <input type="submit" name="Search" class="sub" value="Найти билет">
+            </form>
 		</div>
 	</div>
 	<div class="modal" id="modal">
@@ -38,22 +41,13 @@
                 <input type="submit" value="Войти" name="auth">
                 <input type="submit" value="Зарегистрироваться" onclick="window.location.href='#modal_reg'">
                 <?php
-                session_start();
-                include_once 'db/db.php';
-                error_reporting(0);
+                
                 $email = $_POST['email'];
                 $password = $_POST['password'];
                 $auth = $_POST['auth'];
                 $str_out = "SELECT * FROM `users` WHERE email = '$email' && password = '$password'";
                 $run_out = mysqli_query($connect, $str_out);
                 $num_out = mysqli_num_rows($run_out);
-                if ($_SESSION['user']['role'] == '1') {
-                    header("Location:pages/lk_user.php");
-                }elseif ($_SESSION['user']['role'] == '2') {
-                    header("Location:pages/lk_admin.php");
-                }else
-                {
-                    session_unset();
                     if ($auth) {
                         if ($num_out == 1) {
                             $user = mysqli_fetch_array($run_out);
@@ -78,7 +72,6 @@
                             echo "<p class='error error_auth'>Неверный логин или пароль</p>";
                         }
                     }
-                }
                 ?>
             </form>
         </div>
@@ -120,13 +113,6 @@
                     $run_out = mysqli_query($connect, $str_out_users);
                     $num_out = mysqli_num_rows($run_out);
                     $str_add_users = "INSERT INTO `users` (`first_name`, `last_name`, `patronymic`, `email`, `password`, `phone`) VALUES ('$firstname', '$lastname', '$patronymic', '$email', '$password', '$phone')";
-
-                    if ($_SESSION['user']['role'] == '1') {
-                        header("Location:pages/lk_user.php");
-                    }elseif ($_SESSION['user']['role'] == '2') {
-                        header("Location:pages/lk_admin.php");
-                    }else {
-                        session_unset();
                         if ($reg) {
                             if ($num_out == 0) {
                                 if ($password == $replypassword) {
@@ -165,7 +151,6 @@
                                 echo "<p class='error error_auth'>Пользователь с таким email уже существует!</p>";
                             }
                         }
-                    }
                 ?>
             </form>
             </div>
@@ -214,4 +199,5 @@
         include_once 'controllers/footer.php';
     ?>
 </body>
+<script src="scripts/js.js"></script>
 </html>
