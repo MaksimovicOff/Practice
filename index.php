@@ -8,17 +8,9 @@
 </head>
 <body>
 	<div class="heads">
-		<div class="header">
-			<div class="logo"></div>
-			<div class="menu">
-				<a href="">Главная</a>
-				<a href="">Отмененнные рейсы</a>
-				<a href="">Расписание</a>
-				<a href="">Отзывы</a>
-				<a href="">О нас</a>
-				<a href="#modal">Войти</a>
-			</div>
-		</div>
+        <?php
+        include_once 'controllers/header_menu.php';
+        ?>
 		
 		<h1>Найти актуальные билеты</h1>
 		<div class="bilet">
