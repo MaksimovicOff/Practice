@@ -27,6 +27,7 @@
                 <?php
                 session_start();
                 include_once '../db/db.php';
+                error_reporting(0);
                 $email = $_POST['email'];
                 $password = $_POST['password'];
                 $auth = $_POST['auth'];
@@ -61,7 +62,7 @@
                             }
                         }
                         else {
-                            echo "<p class='error'>Неверный логин или пароль</p>";
+                            echo "<p class='error error_auth'>Неверный логин или пароль</p>";
                         }
                     }
                 }
