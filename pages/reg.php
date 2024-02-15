@@ -80,9 +80,9 @@ if ($_SESSION['user']['role'] == '1') {
                         "role_sales" => $user['role_sales']
                     ];
                     if ($_SESSION['user']['role'] == '1') {
-                        header("Location:lk_user.php");
+                        header("Location: lk_user.php");
                     }elseif ($_SESSION['user']['role'] == '2') {
-                        header("Location:lk_admin.php");
+                        header("Location: lk_admin.php");
                     }
                     
                 }
