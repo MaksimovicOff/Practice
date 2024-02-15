@@ -12,6 +12,6 @@
 		<a href="">Расписание</a>
 		<a href="">Отзывы</a>
 		<a href="">О нас</a>
-		<a href="">Войти</a>
+		<a href="#modal" class="lk_f_logo">Войти</a>
 	</div>
 </div>
