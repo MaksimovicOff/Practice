@@ -156,6 +156,11 @@ h2
     justify-content: space-around;
 }
 
+.active__menu__link
+{
+    color: #77BEFF;
+}
+
 .circle {
     background: #ffffff;
     clip-path: circle(50%);
