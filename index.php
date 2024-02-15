@@ -11,7 +11,6 @@
         <?php
         include_once 'controllers/header_menu.php';
         ?>
-		
 		<h1>Найти актуальные билеты</h1>
 		<div class="bilet">
 			<input type="text" name="otkuda" class="polev" placeholder="Откуда">
