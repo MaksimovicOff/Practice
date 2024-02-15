@@ -15,7 +15,7 @@
 				<a href="">Отмененнные рейсы</a>
 				<a href="">Расписание</a>
 				<a href="">Отзывы</a>
-				<a href="">О нас</a>
+				<a href="pages/about.php">О нас</a>
 				<a href="#modal">Войти</a>
 			</div>
 		</div>
