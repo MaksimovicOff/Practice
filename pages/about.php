@@ -33,7 +33,7 @@
 		</div>
 	</div>
 	<div class="content" style="display: flex;">
-		<div style="display: flex;flex-wrap: wrap;flex-direction: column;height: 100%;width: 55%;align-items: center;margin-left: 5%;">
+		<div style="display: flex;flex-wrap: wrap;flex-direction: column;height: 100%;width: 55%;align-items: center;margin-left: 2%;">
 			<br>
 			<h3>О нас</h3>
 			<br>
@@ -71,14 +71,13 @@
 		</div>
 		<div style="display: flex; flex-direction: column; width: 40%; margin-left: 5%; margin-right: 5%;">
   			<div style="display: flex;">
-    			<div style="background-image: url(../img/stuart.jpg); width: 50%; height: 70%; border: 5px solid white; background-repeat: no-repeat;
-    				background-position: center;"></div>
-    			<div style="display: flex; flex-direction: column;">
-      				<div style="background-image: url(../img/obeda.jpg); width: 100%; height: 50%; border: 5px solid white; background-repeat: no-repeat; background-position: center;"></div>
-      				<div style="background-image: url(../img/bashni.jpg); width: 100%; height: 50%; border: 5px solid white; background-repeat: no-repeat; background-position: center;"></div>
+    			<div style="width: 80%; height: 70%; border: 5px solid black;"><img src="../img/bashni.jpg" style="width: 100%; height: 100%; object-fit: cover;"></div>
+    			<div style="display: flex; flex-direction: column; justify-content: flex-end;">
+      				<div style="width: 80%; height: 20%; border: 5px solid black;"><img src="../img/pilot.jpg" style="width: 100%; height: 100%; object-fit: cover;"></div>
+      				<div style="width: 80%; height: 20%; border: 5px solid black;"><img src="../img/stuart.jpg" style="width: 100%; height: 100%; object-fit: cover;"></div>
     			</div>
   			</div>
-  			<div style="background-image: url(../img/pilot.jpg); width: 100%; height:30%; border: 5px solid white; background-repeat: no-repeat; background-position: center;"></div>
+  			<div style="width: 100%; height:30%; border: 5px solid black;"><img src="../img/obeda.jpg" style="width: 100%; height: 100%; object-fit: cover;"></div>
 			</div>
 		</div>
 	<?php
