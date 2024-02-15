@@ -22,14 +22,14 @@
 		
 		<h1>Найти актуальные билеты</h1>
 		<div class="bilet">
-			<input type="text" name="otkuda" placeholder="Откуда">
-			<input type="text" name="kuda" placeholder="Куда">
-			<input type="date" name="data" placeholder="Дата вылета">
-			<select>
+			<input type="text" name="otkuda" class="polev" placeholder="Откуда">
+			<input type="text" name="kuda" class="polev" placeholder="Куда">
+			<input type="date" name="data" class="polev" placeholder="Дата вылета">
+			<select class="polev">
 				<option>Бизнес</option>
 				<option>Эконом</option>
 			</select>
-			<input type="submit" name="otkuda" value="Найти билет">
+			<input type="submit" name="otkuda" class="sub" value="Найти билет">
 		</div>
 	</div>
 	<div class="modal" id="modal">
@@ -185,17 +185,20 @@
 		<h2>Наши преимущества</h2>
 		<div class="preim">
 			<div class="block1">
-				<img src="img/security.png">
+                <div style="display: flex;flex-direction: column; width: 100%; align-items: center; justify-content: space-evenly;"><img src="img/security.png" style="margin-bottom: 10px;">
+                <h3>Безопасность</h3></div>
 				<p>Мы соблюдаем высокие стандарты безопасности, наш экипаж является высококвалифицированным</p>
 			</div>
-			<div class="block2">
-				<img src="img/like.png">
-				<p>У нас комфортабельные салоны, отличное обслуживание, которое найдет подход к каждому, есть бесплатный WI-FI</p>
-			</div>
-			<div class="block3">
-				<img src="img/three-way.png">
-				<p>Вы можете настроить свой перелет так, как вам хочется, есть гибкая настройка перелета</p>
-			</div>
+			<div class="block1">
+                <div style="display: flex;flex-direction: column; width: 100%; align-items: center; justify-content: space-evenly;"><img src="img/like.png" style="margin-bottom: 10px;">
+                <h3>Комфорт</h3></div>
+                <p>У нас комфортабельные салоны, отличное обслуживание, которое найдет подход к каждому, есть бесплатный WI-FI</p>
+            </div>
+			<div class="block1">
+                <div style="display: flex;flex-direction: column; width: 100%; align-items: center; justify-content: space-evenly;"><img src="img/three-way.png" style="margin-bottom: 10px;">
+                <h3>Гибкость</h3></div>
+                <p>Вы можете настроить свой перелет так, как вам хочется, есть гибкая настройка перелета</p>
+            </div>
 		</div>
 		<h2 class="e-content_">Отзывы</h2>
 		<div class="otzivi">
@@ -206,7 +209,9 @@
                     $str_out_reviews_user = "SELECT * FROM `users` WHERE `id` = $reviews[id_user]";
                     $run_out_rewiews_user = mysqli_query($connect, $str_out_reviews_user);
                     $users_reviews = mysqli_fetch_array($run_out_rewiews_user);
-                    echo "<div class='e-reviews index_reviews'>
+                    echo "
+                    <div class='e-reviews index_reviews'>
+                        <img src='img/ava.png'>
                         <div class='e-name'><p>$users_reviews[first_name]</p></div>
                         <div class='e-content'><p>$reviews[content]</p></div>
                         </div>";
@@ -214,22 +219,8 @@
         ?>
 		</div>
 	</div>
-	<div class="footer">
-		<div class="line">
-			<div class="logo_f"></div>
-			<div class="soc">
-				<div class="vk"><a href="#"></a></div>
-				<div class="tg"><a href="#"></a></div>
-			</div>
-		</div>
-		<div class="menu_f">
-			<a href="">Главная</a>
-			<a href="">Отмененнные рейсы</a>
-			<a href="">Расписание</a>
-			<a href="">Отзывы</a>
-			<a href="">О нас</a>
-			<a href="">Войти</a>
-		</div>
-	</div>
+    <?php
+        include_once 'controllers/footer.php';
+    ?>
 </body>
 </html>
