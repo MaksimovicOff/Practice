@@ -64,8 +64,12 @@ h2
 .content
 {
     width: 100%;
-    height: 530px;
     color: black;
+}
+
+.content h2
+{
+    margin: 5% 0;
 }
 
 .preim
@@ -120,55 +124,11 @@ h2
 .otzivi
 {
     width: 100%;
-    height: 200px;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-
-.otziv1
-{
-    width: 15%;
-    height: 180px;
-    border: 2px solid black;
+    /* height: 200px; */
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
-}
-
-.otziv2
-{
-    width: 15%;
-    height: 180px;
-    border: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
-}
-
-.otziv3
-{
-    width: 15%;
-    height: 180px;
-    border: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
-}
-
-.otziv4
-{
-    width: 15%;
-    height: 180px;
-    border: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .footer
@@ -468,7 +428,7 @@ img
     right: 0;
     left: 0;
     bottom: 0;
-    margin-left: 90%;
+    margin-left: 87%;
     margin-top: 5%;
 }
 
@@ -483,8 +443,13 @@ img
     right: 0;
     left: 0;
     bottom: 0;
-    margin-left: 90%;
+    margin-left: 87%;
     margin-top: 5%;
+}
+
+.icon_update
+{
+    margin-left: 90%;
 }
 
 .icon_now
@@ -498,7 +463,7 @@ img
     right: 0;
     left: 0;
     bottom: 0;
-    margin-left: 90%;
+    margin-left: 87%;
     margin-top: 5%;
 }
 
@@ -1015,4 +980,212 @@ table
     color: #0085FF;
     background-color: #fff;
     transition: 0.3s all;
+}
+
+.create_review form
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.create_review form textarea
+{
+    padding: 1%;
+    border-radius: 10px;
+    border: 1px solid #D0D6E1;
+    outline: none;
+    min-width: 20%;
+}
+
+.create_review form textarea::-webkit-input-placeholder {
+    color: #D0D6E1;
+} 
+
+.create_review form textarea::-moz-placeholder {
+    color: #D0D6E1;
+}
+
+.create_review form input
+{
+    margin-top: 3%;
+    min-width: 20%;
+    padding: 1% 0;
+    background-color: #0085FF;
+    border: 1px solid #0085FF;
+    border-radius: 10px;
+    color: #fff;
+    transition: 0.3s all;
+}
+
+.create_review form input:hover
+{
+    background-color: transparent;
+    color: #0085FF;
+    transition: 0.3s all;
+}
+
+.success_reviews
+{
+    min-width: 20%;
+    margin-top: 2%;
+}
+
+.error_reviews
+{
+    min-width: 20%;
+    margin-top: 2%;
+}
+
+.error_auth
+{
+    width: 100%;
+}
+
+.index_reviews
+{
+    width: 70%;
+    padding-bottom: 5%;
+}
+
+.error_user
+{
+    width: 100%;
+}
+
+.success_user
+{
+    width: 100%;
+}
+
+.update_user
+{
+    margin-bottom: 5%;
+}
+
+.error_update
+{
+    width: 100%;
+}
+
+.success_update
+{
+    width: 100%;
+}
+
+
+.modal{
+    z-index: 99;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: all 0.5s ease 0s;
+}
+.modal:target{
+    opacity: 1;
+    visibility: visible ;
+}
+
+.modal_body{
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 30px 10px;
+    margin-top: 10%;
+}
+.modal_body_avatar{
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 30px 10px;
+    margin-top: 350px;
+}
+.modal_content{
+    background-color: #f1f1f1;
+    color: #000;
+    width: 350px;
+    padding: 30px;
+    position: relative;
+    height: 405px;
+    transition: all 0.5s;
+    opacity: 0;
+    border-radius: 3px;
+    transform: translate(0px, -100%);
+}
+
+.modal_content_reg
+{
+    background-color: #f1f1f1;
+    color: #000;
+    width: 300px;
+    padding: 30px;
+    position: relative;
+    height: 710px;
+    transition: all 0.5s;
+    opacity: 0;
+    border-radius: 3px;
+    transform: translate(0px, -100%);   
+}
+
+.modal:target .modal_content{
+    transform: translate(0px, 0px);
+    opacity: 1;
+}
+.modal_content_avatar{
+    background-color: #f1f1f1;
+    color: #000;
+    text-align: center;
+    max-width: 800px;
+    padding: 30px;
+    position: relative;
+    height: 360px;
+    transition: all 0.5 ease 0s;
+    opacity: 0;
+    border-radius: 3px;
+    transform: translate(0px, -100%);
+}
+.modal:target .modal_content_avatar{
+    transform: translate(0px, 0px);
+    opacity: 1;
+}
+.modal_title{
+    font-size: 40px;
+    margin: 0px 0px 1em 0px;
+}
+.modal_close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+.modal_close img
+{
+    width: 25px;
+    height: 25px;
+}
+.modal_close:hover{
+    color: gray;
+    transition: 0.3s;
+}
+
+.modal_auth_input
+{
+    width: 93%;
 }

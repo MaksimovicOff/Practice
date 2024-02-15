@@ -47,11 +47,7 @@ error_reporting(0);
                 `role_sales` = '$role_sales'
                 WHERE `id` = $edit";
 
-                if ($update) {
-                    if ($password == $password_reply) {
-                        $run_update_user = mysqli_query($connect, $str_update_user);
-                    }
-                }
+                
                 ?>
                 <input type="text" placeholder="First name" name="FirstName" required value="<?php echo $users['first_name']; ?>">
                 <input type="text" placeholder="Last name" name="LastName" required value="<?php echo $users['last_name']; ?>">
@@ -59,16 +55,30 @@ error_reporting(0);
                 <input type="email" name="Email" id="" placeholder="Email" required value="<?php echo $users['email']; ?>">
                 <div class="v_pass">
                     <input type="password" placeholder="Password" id="password" required name="Password" value="<?php echo $users['password']; ?>">
-                    <span class="icon"></span>
+                    <span class="icon icon_update"></span>
                 </div>
                 <div class="v_pass_reply">
                     <input type="password" placeholder="Password reply" id="password_reply" required name="ReplyPassword">
-                    <span class="icon_reply"></span>
+                    <span class="icon_reply icon_update"></span>
                 </div>
                 <input type="text" placeholder="Phone" name="Phone" required value="<?php echo $users['phone']; ?>">
                 <input type="text" placeholder="Phone" name="role" required value="<?php echo $users['role']; ?>">
                 <input type="text" placeholder="Phone" name="role_sales" required value="<?php echo $users['role_sales']; ?>">
                 <input type="submit" value="Обновить" name="update">
+                <?php
+                if ($update) {
+                    if ($password == $password_reply) {
+                        $run_update_user = mysqli_query($connect, $str_update_user);
+                        if ($run_update_user) {
+                            echo "<p class='success success_update'>Вы успешно обновили данные!</p>";
+                        }else {
+                            echo "<p class='error error_update'>Что-то пошло не так..</p>";
+                        }
+                    }else {
+                        echo "<p class='error error_update'>Пароли не совпадают!</p>";
+                    }
+                }
+                ?>
             </form>
         </div>
     </div>

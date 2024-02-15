@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 14 2024 г., 12:31
+-- Время создания: Фев 15 2024 г., 10:56
 -- Версия сервера: 8.0.24
 -- Версия PHP: 8.0.8
 
@@ -44,11 +44,13 @@ CREATE TABLE `flights` (
 --
 
 INSERT INTO `flights` (`id`, `whence`, `wheres`, `ddate`, `adate`, `etime`, `atime`, `price`, `status`) VALUES
-(1, 'Ижевск1', 'Москва1', '2024-02-15', '2024-02-17', '03:00', '08:00', 8500, 1),
+(1, 'Ижевск', 'Москва', '2024-02-15', '2024-02-17', '03:00', '08:00', 8500, 3),
 (2, 'Ижевск', 'Москва', '2024-02-14', '2024-02-15', '10:00', '20:00', 7000, 1),
 (4, 'Мурманск', 'Казань', '2024-02-23', '2024-02-27', '13:00', '04:00', 5800, 2),
 (5, 'Нижний Новгород', 'Нижний Тагил', '2024-03-07', '2024-03-10', '16:00', '18:35', 4500, 7),
-(6, 'Ижевск', 'Москва', '2024-02-14', '2024-02-29', '13:49', '14:51', 3000, 1);
+(6, 'Ижевск', 'Москва', '2024-02-14', '2024-02-29', '13:49', '14:51', 3000, 1),
+(7, 'Томск', 'Владивосток', '2024-02-29', '2024-03-10', '12:00', '16:10', 20500, 1),
+(8, 'Томск', 'Владивосток', '2024-02-29', '2024-03-10', '12:00', '16:10', 20500, 1);
 
 -- --------------------------------------------------------
 
@@ -69,8 +71,10 @@ CREATE TABLE `reviews` (
 
 INSERT INTO `reviews` (`id`, `id_user`, `content`, `status`) VALUES
 (1, 1, '2321321', 2),
-(2, 3, 'asdasdsadd', 3),
-(3, 1, 'фыфыфыфыфыфыфыфыфыфыфы', 2);
+(2, 3, 'asdasdsadd', 2),
+(3, 1, 'фыфыфыфыфыфыфыфыфыфыфы', 2),
+(4, 1, 'Все круто и отлично', 2),
+(5, 1, 'Все круто и отлично', 2);
 
 -- --------------------------------------------------------
 
@@ -99,10 +103,12 @@ CREATE TABLE `sales` (
 
 INSERT INTO `sales` (`id`, `first_name`, `last_name`, `patronymic`, `email`, `phone`, `adult`, `children`, `class`, `id_flights`, `role_sales_id`, `price`) VALUES
 (1, 'Egor', 'Khozyashev', 'Dimovich', 'egor@gmail.com', '89999999999', 1, 0, 1, 4, 1, 9600),
-(2, '1', '1', '1', 'admin@admin.ru', '1', 1, 1, 1, 1, 1, 1),
+(2, '3', '3', '3', 'admin@admin.ru', '3', 3, 3, 2, 1, 1, 40300),
 (5, 'Алексей1', 'Алексеев1', 'Алексеевич1', 'al2eksei@gmail.com', '89408887766', 1, 1, 1, 2, 2, 10920),
 (7, 'admin', 'admin', 'admin', 'admin@admin.ru', '89509999999', 2, 1, 2, 6, 3, 8640),
-(8, 'admin', 'admin', 'admin', 'admin@admin.ru', '89509999999', 1, 0, 1, 2, 3, 5600);
+(8, 'admin', 'admin', 'admin', 'admin@admin.ru', '89509999999', 1, 0, 1, 2, 3, 5600),
+(9, 'Егор', 'Хозяшев', 'Димович', 'gv7361299@gmail.com', '89999999988', 1, 0, 1, 2, 1, 9100),
+(10, 'admin', 'admin', 'admin', 'admin@admin.ru', '89509999999', 1, 0, 2, 6, 3, 4320);
 
 -- --------------------------------------------------------
 
@@ -128,7 +134,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `patronymic`, `email`, `password`, `phone`, `role`, `role_sales`) VALUES
 (1, 'admin', 'admin', 'admin', 'admin@admin.ru', '123', '89509999999', 2, 3),
-(3, 'Егор', 'Хозяшев', 'Димович', 'gv7361299@gmail.com', 'qiawox123', '89999999988', 1, 1);
+(3, 'Егор', 'Хозяшев', 'Димович', 'gv7361299@gmail.com', 'qiawox', '89999999988', 1, 1),
+(4, 'Никита', 'Иванов', 'Олегович', 'nikita_super112@mail.ru', '123', '89776665544', 1, 1);
 
 --
 -- Индексы сохранённых таблиц
@@ -167,25 +174,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `flights`
 --
 ALTER TABLE `flights`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

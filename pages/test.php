@@ -1,41 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="styles/styles.css">
-	<title>Авиабилеты</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <title>Document</title>
 </head>
 <body>
-	<div class="heads">
-		<div class="header">
-			<div class="logo"></div>
-			<div class="menu">
-				<a href="">Главная</a>
-				<a href="">Отмененнные рейсы</a>
-				<a href="">Расписание</a>
-				<a href="">Отзывы</a>
-				<a href="">О нас</a>
-				<a href="#modal">Войти</a>
-			</div>
-		</div>
-		
-		<h1>Найти актуальные билеты</h1>
-		<div class="bilet">
-			<input type="text" name="otkuda" placeholder="Откуда">
-			<input type="text" name="kuda" placeholder="Куда">
-			<input type="date" name="data" placeholder="Дата вылета">
-			<select>
-				<option>Бизнес</option>
-				<option>Эконом</option>
-			</select>
-			<input type="submit" name="otkuda" value="Найти билет">
-		</div>
-	</div>
-	<div class="modal" id="modal">
+<div class="auth">
+            <a href="#modal" class="auth_link">Вход</a>
+        <div class="modal" id="modal">
             <div class="modal_body">
                 <div class="modal_content">
-                <a href="#" class="modal_close"><img src="img/free-icon-crossed-4219073.png" alt=""></a>
+                <a href="#" class="modal_close">X</a>
                 <div class="auth-form">
             <form method="POST">
                 <input type="email" name="email" id="" placeholder="Email" required class="modal_auth_input">
@@ -48,7 +28,7 @@
                 <input type="submit" value="Зарегистрироваться" onclick="window.location.href='#modal_reg'">
                 <?php
                 session_start();
-                include_once 'db/db.php';
+                include_once '../db/db.php';
                 error_reporting(0);
                 $email = $_POST['email'];
                 $password = $_POST['password'];
@@ -57,9 +37,9 @@
                 $run_out = mysqli_query($connect, $str_out);
                 $num_out = mysqli_num_rows($run_out);
                 if ($_SESSION['user']['role'] == '1') {
-                    header("Location:pages/lk_user.php");
+                    header("Location:lk_user.php");
                 }elseif ($_SESSION['user']['role'] == '2') {
-                    header("Location:pages/lk_admin.php");
+                    header("Location:lk_admin.php");
                 }else
                 {
                     session_unset();
@@ -78,9 +58,9 @@
                                 "role_sales" => $user['role_sales']
                             ];
                             if ($_SESSION['user']['role'] == '1') {
-                                header("Location:pages/lk_user.php");
+                                header("Location:lk_user.php");
                             }elseif ($_SESSION['user']['role'] == '2') {
-                                header("Location:pages/lk_admin.php");
+                                header("Location:lk_admin.php");
                             }
                         }
                         else {
@@ -97,7 +77,7 @@
              <div class="modal" id="modal_reg">
         <div class="modal_body">
             <div class="modal_content modal_content_reg">
-            <a href="#" class="modal_close"><img src="img/free-icon-crossed-4219073.png" alt=""></a>
+            <a href="#" class="modal_close">X</a>
             <div class="auth-form">
             <form method="POST">
                 <input type="text" placeholder="First name" name="FirstName" required class="modal_auth_input">
@@ -116,6 +96,8 @@
                 <input type="submit" value="Зарегистрироваться" name="Reg">
                 <input type="submit" value="Войти" onclick="window.location.href='#modal'">
                 <?php
+                    session_start();
+                    include_once '../db/db.php';
                     $firstname = $_POST['FirstName'];
                     $lastname = $_POST['LastName'];
                     $patronymic = $_POST['Patronymic'];
@@ -131,9 +113,9 @@
                     $str_add_users = "INSERT INTO `users` (`first_name`, `last_name`, `patronymic`, `email`, `password`, `phone`) VALUES ('$firstname', '$lastname', '$patronymic', '$email', '$password', '$phone')";
 
                     if ($_SESSION['user']['role'] == '1') {
-                        header("Location:pages/lk_user.php");
+                        header("Location:lk_user.php");
                     }elseif ($_SESSION['user']['role'] == '2') {
-                        header("Location:pages/lk_admin.php");
+                        header("Location:lk_admin.php");
                     }else {
                         session_unset();
                         if ($reg) {
@@ -156,9 +138,9 @@
                                             "role_sales" => $user['role_sales']
                                         ];
                                         if ($_SESSION['user']['role'] == '1') {
-                                            header("Location:pages/lk_user.php");
+                                            header("Location:lk_user.php");
                                         }elseif ($_SESSION['user']['role'] == '2') {
-                                            header("Location:pages/lk_admin.php");
+                                            header("Location:lk_admin.php");
                                         }
                                         
                                     }
@@ -181,55 +163,7 @@
             </div>
         </div>
     </div>
-	<div class="content">
-		<h2>Наши преимущества</h2>
-		<div class="preim">
-			<div class="block1">
-				<img src="img/security.png">
-				<p>Мы соблюдаем высокие стандарты безопасности, наш экипаж является высококвалифицированным</p>
-			</div>
-			<div class="block2">
-				<img src="img/like.png">
-				<p>У нас комфортабельные салоны, отличное обслуживание, которое найдет подход к каждому, есть бесплатный WI-FI</p>
-			</div>
-			<div class="block3">
-				<img src="img/three-way.png">
-				<p>Вы можете настроить свой перелет так, как вам хочется, есть гибкая настройка перелета</p>
-			</div>
-		</div>
-		<h2 class="e-content_">Отзывы</h2>
-		<div class="otzivi">
-		<?php
-                $str_out_reviews = "SELECT * FROM `reviews`WHERE `status` = 2 ORDER BY `id` DESC LIMIT 0, 4 ";
-                $run_out_reviews = mysqli_query($connect, $str_out_reviews);
-                while ($reviews = mysqli_fetch_array($run_out_reviews)) {
-                    $str_out_reviews_user = "SELECT * FROM `users` WHERE `id` = $reviews[id_user]";
-                    $run_out_rewiews_user = mysqli_query($connect, $str_out_reviews_user);
-                    $users_reviews = mysqli_fetch_array($run_out_rewiews_user);
-                    echo "<div class='e-reviews index_reviews'>
-                        <div class='e-name'><p>$users_reviews[first_name]</p></div>
-                        <div class='e-content'><p>$reviews[content]</p></div>
-                        </div>";
-                }
-        ?>
-		</div>
-	</div>
-	<div class="footer">
-		<div class="line">
-			<div class="logo_f"></div>
-			<div class="soc">
-				<div class="vk"><a href="#"></a></div>
-				<div class="tg"><a href="#"></a></div>
-			</div>
-		</div>
-		<div class="menu_f">
-			<a href="">Главная</a>
-			<a href="">Отмененнные рейсы</a>
-			<a href="">Расписание</a>
-			<a href="">Отзывы</a>
-			<a href="">О нас</a>
-			<a href="">Войти</a>
-		</div>
-	</div>
+</div>
 </body>
+<script src="../scripts/js.js"></script>
 </html>

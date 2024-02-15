@@ -2,6 +2,9 @@
 session_start();
 error_reporting(0);
 include_once '../db/db.php';
+if ($_SESSION['user']['role'] == 1) {
+    header("Location:lk_user.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,15 +28,15 @@ include_once '../db/db.php';
             <div class="private_form">
                 <form method="POST" class="lk_form">
                     <div class="first_input">
-                        <input type="text" placeholder="Имя" value="<?php echo $_SESSION['user']['first_name']; ?>" name="name_upd">
-                        <input type="text" placeholder="Фамилия" class="center_input" value="<?php echo $_SESSION['user']['last_name']; ?>" name="last_name_upd">
-                        <input type="text" placeholder="Отчество" value="<?php echo $_SESSION['user']['patronymic']; ?>" name="patronymic_upd">
+                        <input type="text" placeholder="Имя" value="<?php echo $_SESSION['user']['first_name']; ?>" name="name_upd" required>
+                        <input type="text" placeholder="Фамилия" class="center_input" value="<?php echo $_SESSION['user']['last_name']; ?>" name="last_name_upd" required>
+                        <input type="text" placeholder="Отчество" value="<?php echo $_SESSION['user']['patronymic']; ?>" name="patronymic_upd" required>
                     </div>
                     <div class="second_input">
-                        <input type="email" placeholder="Email" class="first_in" value="<?php echo $_SESSION['user']['email']; ?>" name="email_upd">
-                        <input type="text" placeholder="Phone" class="last_in" value="<?php echo $_SESSION['user']['phone']; ?>" name="phone_upd">
+                        <input type="email" placeholder="Email" class="first_in" value="<?php echo $_SESSION['user']['email']; ?>" name="email_upd" required>
+                        <input type="text" placeholder="Phone" class="last_in" value="<?php echo $_SESSION['user']['phone']; ?>" name="phone_upd" required>
                     </div>
-                    <input type="submit" value="Сохранить" name="update">
+                    <input type="submit" value="Сохранить" name="update" class="update_user">
                     <?php
                     $name_upd = $_POST['name_upd'];
                     $lastname_upd = $_POST['last_name_upd'];
@@ -50,7 +53,27 @@ include_once '../db/db.php';
                     `phone` = '$phone_upd'
                     WHERE `id` = $id_upd";
                     if ($update) {
-                        mysqli_query($connect, $str_update_user);
+                        $run_update_user = mysqli_query($connect, $str_update_user);
+                        if ($run_update_user) {
+                            echo "<p class='success'>Вы успешно изменили данные!</p>";
+                            $str_out_now_data_s = "SELECT * FROM `users` WHERE `id` = $id_upd";
+                            $run_out_now_data_s = mysqli_query($connect, $str_out_now_data_s);
+                            $now_data_s = mysqli_fetch_array($run_out_now_data_s);
+                            $_SESSION['user'] = [
+                                "id" => $now_data_s['id'],
+                                "first_name" => $now_data_s['first_name'],
+                                "last_name" => $now_data_s['last_name'],
+                                "patronymic" => $now_data_s['patronymic'],
+                                "password" => $now_data_s['password'],
+                                "email" => $now_data_s['email'],
+                                "phone" => $now_data_s['phone'],
+                                "role" => $now_data_s['role'],
+                                "role_sales" => $now_data_s['role_sales']
+                            ];
+                        }
+                        else {
+                            echo "<p class='error'>Что-то пошло не так..</p>";
+                        }
                     }
                     ?>
                 </form>
@@ -83,19 +106,30 @@ include_once '../db/db.php';
                     $str_update_password = "UPDATE `users` SET
                     `password` = '$password_new'
                     WHERE `id` = $id_password";
+                    $id_now = $_SESSION['user']['id'];
+
+                    
                     if ($save) {
                         if ($password_now == $password_now_s) {
                             if ($password_new == $password_new_reply) {
                                 $run_update_password = mysqli_query($connect, $str_update_password);
+                                if ($run_update_password) {
+                                    echo "<p class='success success_user'>Вы успешно изменили пароль!</p>";
+                                    $str_out_now_data = "SELECT * FROM `users` WHERE `id` = $id_now";
+                                    $run_out_now_data = mysqli_query($connect, $str_out_now_data);
+                                    $now_data = mysqli_fetch_array($run_out_now_data);
+                                    $_SESSION['user']['password'] = $now_data['password'];
+                                    # code...
+                                }
                             }
                             else
                             {
-                                echo "<p class='error'>Пароли не совпадают!</p>";
+                                echo "<p class='error error_user'>Пароли не совпадают!</p>";
                             }
                         }
                         else
                         {
-                            echo "<p class='error'>Неверный старый пароль!</p>";
+                            echo "<p class='error error_user'>Неверный старый пароль!</p>";
                         }
                     }
                     ?>
@@ -339,11 +373,11 @@ include_once '../db/db.php';
                     if ($add_flights) {
                         $run_add_flights = mysqli_query($connect, $str_add_flights);
                         if ($run_add_flights) {
-                            echo "<p class='success'>Вы успешно добавили рейс!</p>";
+                            echo "<p class='success success_update'>Вы успешно добавили рейс!</p>";
                         }
                         else
                         {
-                            echo "<p class='error'>Что-то пошло не так!</p>";
+                            echo "<p class='error error_update'>Что-то пошло не так!</p>";
                         }
                     }
                     ?>

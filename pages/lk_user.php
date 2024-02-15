@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once '../db/db.php';
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,15 +25,15 @@ include_once '../db/db.php';
             <div class="private_form">
                 <form method="POST" class="lk_form">
                     <div class="first_input">
-                        <input type="text" placeholder="Имя" value="<?php echo $_SESSION['user']['first_name']; ?>" name="name_upd">
-                        <input type="text" placeholder="Фамилия" class="center_input" value="<?php echo $_SESSION['user']['last_name']; ?>" name="lastname_upd">
-                        <input type="text" placeholder="Отчество" value="<?php echo $_SESSION['user']['patronymic']; ?>" name="patronymic_upd">
+                        <input type="text" placeholder="Имя" value="<?php echo $_SESSION['user']['first_name']; ?>" name="name_upd" required>
+                        <input type="text" placeholder="Фамилия" class="center_input" value="<?php echo $_SESSION['user']['last_name']; ?>" name="lastname_upd" required>
+                        <input type="text" placeholder="Отчество" value="<?php echo $_SESSION['user']['patronymic']; ?>" name="patronymic_upd" required>
                     </div>
                     <div class="second_input">
-                        <input type="email" placeholder="Email" class="first_in" value="<?php echo $_SESSION['user']['email']; ?>" name="email_upd">
-                        <input type="tel" placeholder="Phone" class="last_in" value="<?php echo $_SESSION['user']['phone']; ?>" name="phone_upd">
+                        <input type="email" placeholder="Email" class="first_in" value="<?php echo $_SESSION['user']['email']; ?>" name="email_upd" required>
+                        <input type="tel" placeholder="Phone" class="last_in" value="<?php echo $_SESSION['user']['phone']; ?>" name="phone_upd" required>
                     </div>
-                    <input type="submit" value="Сохранить" name="update">
+                    <input type="submit" value="Сохранить" name="update" class="update_user">
                     <?php
                     $name_upd = $_POST['name_upd'];
                     $lastname_upd = $_POST['lastname_upd'];
@@ -49,7 +50,13 @@ include_once '../db/db.php';
                     `phone` = '$phone_upd'
                     WHERE `id` = $id_upd";
                     if ($update) {
-                        mysqli_query($connect, $str_update_user);
+                        $run_update_user = mysqli_query($connect, $str_update_user);
+                        if ($run_update_user) {
+                            echo "<p class='success'>Вы успешно изменили данные!</p>";
+                        }
+                        else {
+                            echo "<p class='error'>Что-то пошло не так..</p>";
+                        }
                     }
                     ?>
                 </form>
@@ -86,15 +93,16 @@ include_once '../db/db.php';
                         if ($password_now == $password_now_s) {
                             if ($password_new == $password_new_reply) {
                                 $run_update_password = mysqli_query($connect, $str_update_password);
+                                echo "<p class='success success_user'>Вы успешно изменили пароль!</p>'";
                             }
                             else
                             {
-                                echo "<p class='error'>Пароли не совпадают!</p>";
+                                echo "<p class='error error_user'>Пароли не совпадают!</p>";
                             }
                         }
                         else
                         {
-                            echo "<p class='error'>Неверный старый пароль!</p>";
+                            echo "<p class='error error_user'>Неверный старый пароль!</p>";
                         }
                     }
                     ?>
@@ -103,6 +111,50 @@ include_once '../db/db.php';
         </div>
         <div class="buy_bil">
             <div class="private_data"><p>Ваши купленные билеты</p></div>
+            <?php
+            $now_email = $_SESSION['user']['email'];
+            $str_out_sales = "SELECT * FROM `sales` WHERE `email` = '$now_email'";
+            $run_out_sales = mysqli_query($connect, $str_out_sales);
+            ?>
+            <table>
+                <tr>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Отчество</th>
+                    <th>Email</th>
+                    <th>Телефон</th>
+                    <th>Количество взрослых</th>
+                    <th>Количество детей</th>
+                    <th>Класс самолёта</th>
+                    <th>Цена</th>
+                </tr>
+                <?php
+                while ($sales = mysqli_fetch_array($run_out_sales)) {
+                    switch ($sales['class']) {
+                        case '1':
+                            $class = "Эконом";
+                            break;
+                        case '2':
+                            $class = "Бизнес";
+                            break;
+                        
+                        default:
+                            # code...
+                            break;
+                    }
+                    echo "<tr class='e-ever2'>
+                            <td>$sales[first_name]</td>
+                            <td>$sales[last_name]</td>
+                            <td>$sales[patronymic]</td>
+                            <td>$sales[email]</td>
+                            <td>$sales[phone]</td>
+                            <td>$sales[adult]</td>
+                            <td>$sales[children]</td>
+                            <td>$class</td>
+                            <td>$sales[price]</td>
+                        </tr>";
+                }
+                ?>
         </div>
     </div>
 </body>

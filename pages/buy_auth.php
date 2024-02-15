@@ -55,11 +55,7 @@
                                 "role" => $user['role'],
                                 "role_sales" => $user['role_sales']
                             ];
-                            if ($_SESSION['user']['role'] == '1') {
-                                header("Location:lk_user.php");
-                            }elseif ($_SESSION['user']['role'] == '2') {
-                                header("Location:lk_admin.php");
-                            }
+                            header("Location:search.php");
                         }
                         else {
                             echo "<p class='error error_auth'>Неверный логин или пароль</p>";

@@ -20,6 +20,9 @@
                 session_start();
                 include_once "../db/db.php";
                 error_reporting(0);
+                if (empty($_SESSION['user'])) {
+                    header("Location:buy_auth.php");
+                }
                 $id_flights = $_GET['buy'];
                 $str_out_flights = "SELECT * FROM `flights` WHERE `id` = $id_flights";
                 $run_out_flights = mysqli_query($connect, $str_out_flights);
