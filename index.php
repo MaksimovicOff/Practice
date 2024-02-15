@@ -185,17 +185,20 @@
 		<h2>Наши преимущества</h2>
 		<div class="preim">
 			<div class="block1">
-				<img src="img/security.png">
+                <div style="display: flex;flex-direction: column; width: 100%; align-items: center; justify-content: space-evenly;"><img src="img/security.png" style="margin-bottom: 10px;">
+                <h3>Безопасность</h3></div>
 				<p>Мы соблюдаем высокие стандарты безопасности, наш экипаж является высококвалифицированным</p>
 			</div>
-			<div class="block2">
-				<img src="img/like.png">
-				<p>У нас комфортабельные салоны, отличное обслуживание, которое найдет подход к каждому, есть бесплатный WI-FI</p>
-			</div>
-			<div class="block3">
-				<img src="img/three-way.png">
-				<p>Вы можете настроить свой перелет так, как вам хочется, есть гибкая настройка перелета</p>
-			</div>
+			<div class="block1">
+                <div style="display: flex;flex-direction: column; width: 100%; align-items: center; justify-content: space-evenly;"><img src="img/like.png" style="margin-bottom: 10px;">
+                <h3>Комфорт</h3></div>
+                <p>У нас комфортабельные салоны, отличное обслуживание, которое найдет подход к каждому, есть бесплатный WI-FI</p>
+            </div>
+			<div class="block1">
+                <div style="display: flex;flex-direction: column; width: 100%; align-items: center; justify-content: space-evenly;"><img src="img/three-way.png" style="margin-bottom: 10px;">
+                <h3>Гибкость</h3></div>
+                <p>Вы можете настроить свой перелет так, как вам хочется, есть гибкая настройка перелета</p>
+            </div>
 		</div>
 		<h2 class="e-content_">Отзывы</h2>
 		<div class="otzivi">
