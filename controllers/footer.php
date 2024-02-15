@@ -7,7 +7,7 @@
 		</div>
 	</div>
 	<div class="menu_f">
-		<a href="">Главная</a>
+		<a href="../index.php">Главная</a>
 		<a href="">Отмененнные рейсы</a>
 		<a href="">Расписание</a>
 		<a href="">Отзывы</a>
