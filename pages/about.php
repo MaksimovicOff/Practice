@@ -8,29 +8,10 @@
 </head>
 <body>
 	<div class="heads">
-		<div class="header">
-			<div class="logo"></div>
-			<div class="menu">
-				<a href="">Главная</a>
-				<a href="">Отмененнные рейсы</a>
-				<a href="">Расписание</a>
-				<a href="">Отзывы</a>
-				<a href="">О нас</a>
-				<a href="#modal">Войти</a>
-			</div>
-		</div>
-		
-		<h1>Найти актуальные билеты</h1>
-		<div class="bilet">
-			<input type="text" name="otkuda" class="polev" placeholder="Откуда">
-			<input type="text" name="kuda" class="polev" placeholder="Куда">
-			<input type="date" name="data" class="polev" placeholder="Дата вылета">
-			<select class="polev">
-				<option>Бизнес</option>
-				<option>Эконом</option>
-			</select>
-			<input type="submit" name="otkuda" class="sub" value="Найти билет">
-		</div>
+		<?php
+    	include_once "../controllers/header_menu_second.php";
+    	?>		
+		<h1>О нас</h1>
 	</div>
 	<div class="content" style="display: flex;">
 		<div style="display: flex;flex-wrap: wrap;flex-direction: column;height: 100%;width: 55%;align-items: center;margin-left: 2%;">
