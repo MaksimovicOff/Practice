@@ -23,6 +23,21 @@ if ($_SESSION['user']['role'] == 1) {
         <div class="title">
             <h1>Личный кабинет</h1>
         </div>
+        <div class="photo_lk">
+            <?php
+            $id_photo = $_SESSION['user']['id'];
+            $str_out_photo = "SELECT * FROM `users` WHERE `id` = $id_photo";
+            $run_out_photo = mysqli_query($connect, $str_out_photo);
+            $photoes = mysqli_fetch_array($run_out_photo);
+            ?>
+            <div class="private_data"><p>Фото профиля</p></div>
+            <?php echo "<div class='photo_change'><img src='../img/$photoes[photo]'></div>";?>
+            <form action="" method="POST">
+                <?php
+                echo "<a href='update_photo.php?edit_photo=$photoes[id]' target='_blank'>Изменить</a>";
+                ?>
+            </form>
+        </div>
         <div class="data">
             <div class="private_data"><p>Личные данные</p></div>
             <div class="private_form">
