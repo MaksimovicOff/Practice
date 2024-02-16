@@ -327,7 +327,8 @@ img
 .auth-form form input[type=submit],
 .auth-form form input[type=date],
 .auth-form form input[type=time],
-.auth-form form select
+.auth-form form select,
+.auth-form form input[type=file]
 {
     min-width: 100%;
     padding-left: 5%;
@@ -898,12 +899,14 @@ table
 {
     overflow-clip-margin: content-box;
     overflow: clip;
+    object-fit: cover;
+    border-radius: 50px;
 }
 
 
 .e-name
 {
-    padding: 2% 10% 0 5%;
+    padding: 5% 10% 0 10%;
     width: 150px;
     font-size: 14px;
     margin-top: 10px;
@@ -1259,4 +1262,56 @@ table
 .modal_auth_input
 {
     width: 93%;
+}
+
+.photo_lk .private_data
+{
+    color: #fff;
+}
+
+.photo_lk
+{
+    background-color: #0085FF;
+    margin-bottom: 5%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 5%;
+}
+
+.photo_lk form
+{
+    width: 100%;
+    margin-top: 10%;
+}
+
+.photo_lk form a
+{
+    width: 100%;
+    background: #fff;
+    color: #0085FF;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    padding: 5% 0;
+    transition: 0.3s all;
+    display: block;
+    text-align: center;
+}
+
+.photo_lk form a:hover
+{
+    background: transparent;
+    color: #fff;
+    transition: 0.3s all;
+    text-decoration: none;
+}
+
+.photo_change img
+{
+    object-fit: cover;
+    border-radius: 150px;
+    width: 150px;
+    height: 150px;
 }
