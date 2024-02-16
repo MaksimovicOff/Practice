@@ -1135,6 +1135,7 @@ table
 
 .index_reviews
 {
+    min-width: 20%;
     width: 70%;
     padding-bottom: 5%;
 }
@@ -1370,3 +1371,13 @@ table
         background-color: #fff;
         border-bottom: 1px solid #80bdf5;
     }
+
+.out_schedule
+{
+    margin-top: 5%;
+}
+
+.review_out
+{
+    margin: 5% 0;
+}
