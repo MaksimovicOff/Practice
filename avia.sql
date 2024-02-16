@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 15 2024 г., 10:56
+-- Время создания: Фев 16 2024 г., 08:39
 -- Версия сервера: 8.0.24
 -- Версия PHP: 8.0.8
 
@@ -50,7 +50,8 @@ INSERT INTO `flights` (`id`, `whence`, `wheres`, `ddate`, `adate`, `etime`, `ati
 (5, 'Нижний Новгород', 'Нижний Тагил', '2024-03-07', '2024-03-10', '16:00', '18:35', 4500, 7),
 (6, 'Ижевск', 'Москва', '2024-02-14', '2024-02-29', '13:49', '14:51', 3000, 1),
 (7, 'Томск', 'Владивосток', '2024-02-29', '2024-03-10', '12:00', '16:10', 20500, 1),
-(8, 'Томск', 'Владивосток', '2024-02-29', '2024-03-10', '12:00', '16:10', 20500, 1);
+(8, 'Томск', 'Владивосток', '2024-02-29', '2024-03-10', '12:00', '16:10', 20500, 1),
+(9, '1', '1', '2024-01-30', '2024-02-24', '22:30', '01:30', 1010, 1);
 
 -- --------------------------------------------------------
 
@@ -70,11 +71,12 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`id`, `id_user`, `content`, `status`) VALUES
-(1, 1, '2321321', 2),
+(1, 1, '2321321', 3),
 (2, 3, 'asdasdsadd', 2),
 (3, 1, 'фыфыфыфыфыфыфыфыфыфыфы', 2),
 (4, 1, 'Все круто и отлично', 2),
-(5, 1, 'Все круто и отлично', 2);
+(5, 1, 'Все круто и отлично', 2),
+(6, 40, 'test', 2);
 
 -- --------------------------------------------------------
 
@@ -103,12 +105,12 @@ CREATE TABLE `sales` (
 
 INSERT INTO `sales` (`id`, `first_name`, `last_name`, `patronymic`, `email`, `phone`, `adult`, `children`, `class`, `id_flights`, `role_sales_id`, `price`) VALUES
 (1, 'Egor', 'Khozyashev', 'Dimovich', 'egor@gmail.com', '89999999999', 1, 0, 1, 4, 1, 9600),
-(2, '3', '3', '3', 'admin@admin.ru', '3', 3, 3, 2, 1, 1, 40300),
 (5, 'Алексей1', 'Алексеев1', 'Алексеевич1', 'al2eksei@gmail.com', '89408887766', 1, 1, 1, 2, 2, 10920),
 (7, 'admin', 'admin', 'admin', 'admin@admin.ru', '89509999999', 2, 1, 2, 6, 3, 8640),
 (8, 'admin', 'admin', 'admin', 'admin@admin.ru', '89509999999', 1, 0, 1, 2, 3, 5600),
 (9, 'Егор', 'Хозяшев', 'Димович', 'gv7361299@gmail.com', '89999999988', 1, 0, 1, 2, 1, 9100),
-(10, 'admin', 'admin', 'admin', 'admin@admin.ru', '89509999999', 1, 0, 2, 6, 3, 4320);
+(10, 'admin', 'admin', 'admin', 'admin@admin.ru', '89509999999', 1, 0, 2, 6, 3, 4320),
+(12, 'admin1', 'admin1', 'admin1', 'admin@admin.ru', '89509999999', 1, 0, 1, 5, 3, 3600);
 
 -- --------------------------------------------------------
 
@@ -125,17 +127,18 @@ CREATE TABLE `users` (
   `password` varchar(100) NOT NULL,
   `phone` varchar(100) NOT NULL,
   `role` int NOT NULL DEFAULT '1',
-  `role_sales` int NOT NULL DEFAULT '1'
+  `role_sales` int NOT NULL DEFAULT '1',
+  `photo` varchar(100) NOT NULL DEFAULT 'ava.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `patronymic`, `email`, `password`, `phone`, `role`, `role_sales`) VALUES
-(1, 'admin', 'admin', 'admin', 'admin@admin.ru', '123', '89509999999', 2, 3),
-(3, 'Егор', 'Хозяшев', 'Димович', 'gv7361299@gmail.com', 'qiawox', '89999999988', 1, 1),
-(4, 'Никита', 'Иванов', 'Олегович', 'nikita_super112@mail.ru', '123', '89776665544', 1, 1);
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `patronymic`, `email`, `password`, `phone`, `role`, `role_sales`, `photo`) VALUES
+(1, 'admin1', 'admin1', 'admin1', 'admin@admin.ru', '321', '89509999999', 2, 3, 'photo_2023-12-25_21-26-42.jpg'),
+(3, 'Егор', 'Хозяшев', 'Димович', 'gv7361299@gmail.com', 'qiawox', '89999999988', 1, 1, 'ava.png'),
+(40, 'test', 'test', 'test', 'test@test.ru', 'test', '123', 1, 1, 'ava.png');
 
 --
 -- Индексы сохранённых таблиц
@@ -174,25 +177,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `flights`
 --
 ALTER TABLE `flights`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT для таблицы `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
