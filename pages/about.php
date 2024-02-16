@@ -9,7 +9,7 @@
 <body>
 	<div class="heads">
 		<?php
-    	include_once "../controllers/header_menu.php";
+    	include_once "../controllers/header_menu_second.php";
     	?>		
 		<h1>О нас</h1>
 	</div>

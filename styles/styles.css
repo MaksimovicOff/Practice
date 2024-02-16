@@ -301,10 +301,10 @@ img
 }
 
 .auth-form{
-    min-width: 40%;
+    min-width: 20%;
 }
 .form-buy{
-    min-width: 40%;
+    min-width: 20%;
 }
 
 .auth-form form
@@ -585,6 +585,7 @@ img
 {
     font-size: 24px;
     color: #fff;
+    text-align: center;
 }
 
 .data
@@ -707,7 +708,7 @@ img
     background: #0085FF;
     padding: 5%;
     border-radius: 10px;
-    margin: 5%;
+    margin-left: 5%;
     height: 100%;
 }
 
@@ -732,10 +733,12 @@ img
 .lk_about{
     display: flex;
     width: 100%;
-    align-items: center;
     align-content: center;
+    align-items: center;
     justify-content: space-evenly;
     flex-direction: row;
+    background-color: #0085FF;
+    border-radius: 10px;
 }
 
 .exit_lk
@@ -810,7 +813,7 @@ img
 {
     display: flex;
     align-items: flex-start!important;
-    max-width: 40%;
+    max-width: 20%;
     margin: 8% auto;
 }
 
@@ -1286,6 +1289,7 @@ table
 .photo_lk .private_data
 {
     color: #fff;
+    text-align: center;
 }
 
 .photo_lk
@@ -1296,8 +1300,8 @@ table
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
-    padding: 5%;
-    margin: 5%;
+    padding: 0 5%;
+    margin-right: 5%;
 }
 
 .photo_lk form
@@ -1336,7 +1340,8 @@ table
 
     .tabs{
         font-size: 0;
-        text-align: left;
+        text-align: center;
+        margin-top: 5%;
     }
     .tabs>input[type="radio"] {
         display: none;

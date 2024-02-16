@@ -87,15 +87,18 @@ if ($_SESSION['user']['role'] == '1') {
                     
                 }
                 else {
-                    echo "<p class='error'>Возникла ошибка!</p>";
+                    $_SESSION['msg_reg'] = "<p class='error'>Возникла ошибка!</p>";
+                    header("Location: ../#modal_reg");
                 }
             }
             else {
-                echo "<p class='error'>Пароли не совпадают!</p>";
+                $_SESSION['msg_reg'] = "<p class='error'>Пароли не совпадают!</p>";
+                header("Location: ../#modal_reg");
             }
         }
         else {
-            echo "<p class='error'>Пользователь с таким email уже существует!</p>";
+            $_SESSION['msg_reg'] = "<p class='error'>Пользователь с таким email уже существует!</p>";
+            header("Location: ../#modal_reg");
         }
     }
 }
