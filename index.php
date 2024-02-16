@@ -48,7 +48,7 @@
 		<h2 class="e-content_">Отзывы</h2>
 		<div class="otzivi">
 		<?php
-                $str_out_reviews = "SELECT * FROM `reviews`WHERE `status` = 2 ORDER BY `id` DESC LIMIT 0, 4 ";
+                $str_out_reviews = "SELECT * FROM `reviews` WHERE `status` = 2 ORDER BY `id` DESC LIMIT 0, 4";
                 $run_out_reviews = mysqli_query($connect, $str_out_reviews);
                 while ($reviews = mysqli_fetch_array($run_out_reviews)) {
                     $str_out_reviews_user = "SELECT * FROM `users` WHERE `id` = $reviews[id_user]";

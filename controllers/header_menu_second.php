@@ -9,7 +9,7 @@
         <?php
         session_start();
         error_reporting(0);
-        include_once 'db/db.php';
+        include_once '../db/db.php';
         if ($_SESSION['user']) {
         ?><a href="../pages/lk_admin.php" class="lk_logo"><?php echo $_SESSION['user']['first_name']; ?></a><?php
         }else {
@@ -21,9 +21,9 @@
 <div class="modal" id="modal">
     <div class="modal_body">
         <div class="modal_content">
-            <a href="#" class="modal_close"><img src="img/free-icon-crossed-4219073.png" alt=""></a>
+            <a href="#" class="modal_close"><img src="../img/free-icon-crossed-4219073.png" alt=""></a>
             <div class="auth-form">
-                <form method="POST" action="pages/auth.php">
+                <form method="POST" action="auth.php">
                     <input type="email" name="email" id="" placeholder="Email" required class="modal_auth_input">
                     <div class="v_pass">
                         <input type="password" placeholder="Password" id="password" required name="password" class="modal_auth_input">
@@ -46,9 +46,9 @@
 <div class="modal" id="modal_reg">
     <div class="modal_body">
         <div class="modal_content modal_content_reg">
-            <a href="#" class="modal_close"><img src="img/free-icon-crossed-4219073.png" alt=""></a>
+            <a href="#" class="modal_close"><img src="../img/free-icon-crossed-4219073.png" alt=""></a>
             <div class="auth-form">
-                <form method="POST" action="pages/reg.php">
+                <form method="POST" action="reg.php">
                     <input type="text" placeholder="First name" name="FirstName" required class="modal_auth_input">
                     <input type="text" placeholder="Last name" name="LastName" required class="modal_auth_input">
                     <input type="text" placeholder="Patronymic" name="Patronymic" required class="modal_auth_input">

@@ -62,7 +62,8 @@
                             }
                         }
                         else {
-                            echo "<p class='error error_auth'>Неверный логин или пароль</p>";
+                            $_SESSION['msg'] = "<p class='error error_auth'>Неверный логин или пароль</p>";
+                            header("Location:../#modal");
                         }
                     }
                 }

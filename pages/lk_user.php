@@ -15,7 +15,9 @@ error_reporting(0);
     <title>Авторизация</title>
 </head>
 <body>
-    <a href="exit.php" class="exit_lk"><span><img src="../img/exit.png" alt="">Выйти</span></a>
+    <?php
+    include_once "../controllers/header_lk.php";
+    ?>
     <div class="main">
         <div class="title">
             <h1>Личный кабинет</h1>
