@@ -8,9 +8,9 @@
 	</div>
 	<div class="menu_f">
 		<a href="../index.php">Главная</a>
-		<a href="">Отмененнные рейсы</a>
-		<a href="">Расписание</a>
-		<a href="">Отзывы</a>
+		<a href="../pages/races.php">Отмененнные рейсы</a>
+		<a href="../pages/raspisanie.php">Расписание</a>
+		<a href="../pages/otzivi.php">Отзывы</a>
 		<a href="../pages/about.php">О нас</a>
 		<?php
         if ($_SESSION['user']) {
