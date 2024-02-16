@@ -14,10 +14,11 @@
 		<a href="../pages/about.php">О нас</a>
 		<?php
         if ($_SESSION['user']) {
-        ?><a href="../pages/lk_admin.php" class="lk_f_logo"><?php echo $_SESSION['user']['first_name']; ?></a><?php
+        ?><a href="../pages/lk_admin.php"><?php echo $_SESSION['user']['first_name']; ?> <i class="fa-solid fa-user"></i></a><?php
         }else {
-        ?><a href="#modal" class="lk_f_logo">Войти</a><?php
+        ?><a href="#modal">Войти <i class="fa-solid fa-user"></i></a><?php
         }
         ?>	
 	</div>
 </div>
+<script src="https://kit.fontawesome.com/d1cb775d62.js" crossorigin="anonymous"></script>

@@ -506,18 +506,29 @@ if ($_SESSION['user']['role'] == 1) {
                 <div id="content-6" style="width: 100%;">
                     <div class="reviews">
                         <div class="private_data"><p>Отзывы</p></div>
+                        <?php
+                        $str_out_reviews = "SELECT * FROM `reviews`";
+                        $run_out_reviews = mysqli_query($connect, $str_out_reviews);
+                        $approve_reviews = $_GET['approve'];
+                        $str_update_status_reviews = "UPDATE `reviews` SET
+                        `status` = 2
+                        WHERE `id` = $approve_reviews";
+                        $run_update_reviews = mysqli_query($connect, $str_update_status_reviews);
+                        $reject_reviews = $_GET['reject'];
+                        $str_reject_reviews = "UPDATE `reviews` SET
+                        `status` = 3
+                        WHERE `id` = $reject_reviews";
+                        $run_reject_reviews = mysqli_query($connect, $str_reject_reviews);
+                        ?>
+                        <table>
+                            <tr>
+                                <th>ID</th>
+                                <th>Имя</th>
+                                <th>Текст отзыва</th>
+                                <th>Статус</th>
+                                <th colspan="2">Действия</th>
+                            </tr>
                             <?php
-                            $str_out_reviews = "SELECT * FROM `reviews`";
-                            $run_out_reviews = mysqli_query($connect, $str_out_reviews);
-                            $approve_reviews = $_GET['approve'];
-                            $str_update_status_reviews = "UPDATE `reviews` SET
-                            `status` = 2
-                            WHERE `id` = $approve_reviews";
-                            $run_update_reviews = mysqli_query($connect, $str_update_status_reviews);
-                            $reject_reviews = $_GET['reject'];
-                            $str_reject_reviews = "UPDATE `reviews` SET
-                            `status` = 3
-                            WHERE `id` = $reject_reviews";
                             $run_reject_reviews = mysqli_query($connect, $str_reject_reviews);
                             while ($reviews = mysqli_fetch_array($run_out_reviews)) {
                                 switch ($reviews['status']) {
@@ -538,18 +549,19 @@ if ($_SESSION['user']['role'] == 1) {
                                 $str_out_reviews_user = "SELECT * FROM `users` WHERE `id` = $reviews[id_user]";
                                 $run_out_rewiews_user = mysqli_query($connect, $str_out_reviews_user);
                                 $users_reviews = mysqli_fetch_array($run_out_rewiews_user);
-                                echo "<div class='e-reviews'>
-                                    <div class='e-name'><p>$users_reviews[first_name]</p></div>
-                                    <div class='e-content'><p>$reviews[content]</p></div>
-                                    <div class='e-actions'><p><a href='?approve=$reviews[id]' class='approve'>Одобрить</a><a href='?reject=$reviews[id]' class='reject'>Отклонить</a></p></div>
-                                    <div class='status-reviews'><p>Статус: $status_reviews</p></div>
-                                    </div>";
+                                echo "<tr class='e-ever2'>
+                                        <td><p>$reviews[id]</p></td>
+                                        <td><p>$users_reviews[first_name]</p></td>
+                                        <td><p>$reviews[content]</p></td>
+                                        <td><p>$status_reviews</p></td>
+                                        <td><p><a href='?approve=$reviews[id]' class='approve'>Одобрить</a><a href='?reject=$reviews[id]' class='reject'>Отклонить</a></p></td>
+                                    </tr>";
                             }
                             ?>
+                        </table>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </body>
