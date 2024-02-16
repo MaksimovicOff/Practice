@@ -65,14 +65,6 @@ a:hover{
     justify-content: space-evenly;
 }
 
-.lk_logo::before{
-    content: "👤 ";
-}
-
-.lk_f_logo::after{
-    content: " 👤";
-}
-
 h1
 {
     color: white;
@@ -178,8 +170,8 @@ h2
 .circle {
     background: #ffffff;
     clip-path: circle(50%);
-    height: 5em;
-    width: 5em;
+    height: 4em;
+    width: 4em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -192,8 +184,8 @@ h2
 
 .vk
 {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-image: url(../img/vk.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -202,8 +194,8 @@ h2
 
 .tg
 {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-image: url(../img/tg.png);
     background-repeat: no-repeat;
     background-position: center;
