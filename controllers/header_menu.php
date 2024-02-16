@@ -8,10 +8,10 @@
 		<a href="../pages/about.php">О нас</a>
         <?php
         session_start();
-        include_once 'db/db.php';
         error_reporting(0);
+        include_once '../db/db.php';
         if ($_SESSION['user']) {
-        ?><a href="pages/lk_admin.php" class="lk_logo"><?php echo $_SESSION['user']['first_name']; ?></a><?php
+        ?><a href="../pages/lk_admin.php" class="lk_logo"><?php echo $_SESSION['user']['first_name']; ?></a><?php
         }else {
         ?><a href="#modal" class="lk_logo">Войти</a><?php
         }
