@@ -26,52 +26,6 @@
             </form>
 		</div>
 	</div>
-	<div class="modal" id="modal">
-        <div class="modal_body">
-            <div class="modal_content">
-                <a href="#" class="modal_close"><img src="img/free-icon-crossed-4219073.png" alt=""></a>
-                <div class="auth-form">
-                    <form method="POST" action="pages/auth.php">
-                        <input type="email" name="email" id="" placeholder="Email" required class="modal_auth_input">
-                        <div class="v_pass">
-                            <input type="password" placeholder="Password" id="password" required name="password" class="modal_auth_input">
-                            <span class="icon"></span>
-                        </div>
-                        <a href="">Забыли пароль?</a>
-                        <input type="submit" value="Войти" name="auth">
-                        <input type="submit" value="Зарегистрироваться" onclick="window.location.href='#modal_reg'">
-                        
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal" id="modal_reg">
-        <div class="modal_body">
-            <div class="modal_content modal_content_reg">
-                <a href="#" class="modal_close"><img src="img/free-icon-crossed-4219073.png" alt=""></a>
-                <div class="auth-form">
-                    <form method="POST" action="pages/reg.php">
-                        <input type="text" placeholder="First name" name="FirstName" required class="modal_auth_input">
-                        <input type="text" placeholder="Last name" name="LastName" required class="modal_auth_input">
-                        <input type="text" placeholder="Patronymic" name="Patronymic" required class="modal_auth_input">
-                        <input type="email" name="Email" id="" placeholder="Email" required class="modal_auth_input">
-                        <div class="v_pass">
-                            <input type="password" placeholder="Password" id="password" required name="Password" class="modal_auth_input">
-                            <span class="icon"></span>
-                        </div>
-                        <div class="v_pass_reply">
-                            <input type="password" placeholder="Password reply" id="password_reply" required name="ReplyPassword" class="modal_auth_input">
-                            <span class="icon_reply"></span>
-                        </div>
-                        <input type="text" placeholder="Phone" name="Phone" required class="modal_auth_input">
-                        <input type="submit" value="Зарегистрироваться" name="Reg">
-                        <input type="submit" value="Войти" onclick="window.location.href='#modal'">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 	<div class="content">
 		<h2>Наши преимущества</h2>
 		<div class="preim">
