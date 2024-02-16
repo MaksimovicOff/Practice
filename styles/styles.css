@@ -37,6 +37,13 @@ a:hover{
     justify-content: space-around;
 }
 
+.headerlk
+{
+    width: 100%;
+    max-height: 150px;
+    display: flex;
+}
+
 .logo
 {
     width: 100px;
@@ -277,7 +284,7 @@ img
 
 .main
 {
-    margin: 0 20%;
+    margin: 0 5%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -288,8 +295,8 @@ img
 
 .title
 {
-    margin-top: 15%;
-    margin-bottom: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
     color: #0085FF;
 }
 
@@ -582,12 +589,14 @@ img
 
 .data
 {
+    height: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     background: #0085FF;
-    padding: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
     border-radius: 10px;
 }
 
@@ -698,7 +707,8 @@ img
     background: #0085FF;
     padding: 5%;
     border-radius: 10px;
-    margin-top: 5%;
+    margin: 5%;
+    height: 100%;
 }
 
 .save
@@ -717,6 +727,15 @@ img
 .auth_data
 {
     margin-top: 15%;
+}
+
+.lk_about{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content: space-evenly;
+    flex-direction: row;
 }
 
 .exit_lk
@@ -741,7 +760,7 @@ img
 .buy_bil .private_data
 {
     color: #0085FF!important;
-    margin-top: 15%;
+    margin-top: 5%;
     text-align: center;
     margin-bottom: 5%;
 }
@@ -749,7 +768,7 @@ img
 .users .private_data
 {
     color: #0085FF!important;
-    margin-top: 15%;
+    margin-top: 5%;
     text-align: center;
     margin-bottom: 5%;
 }
@@ -757,7 +776,7 @@ img
 .sales .private_data
 {
     color: #0085FF!important;
-    margin-top: 15%;
+    margin-top: 5%;
     text-align: center;
     margin-bottom: 5%;
 }
@@ -765,7 +784,7 @@ img
 .reviews .private_data
 {
     color: #0085FF!important;
-    margin-top: 15%;
+    margin-top: 5%;
     text-align: center;
     margin-bottom: 5%;
 }
@@ -774,7 +793,7 @@ img
 .flights .private_data
 {
     color: #0085FF!important;
-    margin-top: 15%;
+    margin-top: 5%;
     text-align: center;
     margin-bottom: 5%;
 }
@@ -782,9 +801,9 @@ img
 .add_flights
 {
     color: #0085FF;
+    margin-top: 5%;
     text-align: center;
     margin-bottom: 5%;
-    margin-bottom: 15%;
 }
 
 .add_flights_form
@@ -1272,19 +1291,18 @@ table
 .photo_lk
 {
     background-color: #0085FF;
-    margin-bottom: 5%;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     padding: 5%;
+    margin: 5%;
 }
 
 .photo_lk form
 {
     width: 100%;
-    margin-top: 10%;
 }
 
 .photo_lk form a
@@ -1315,3 +1333,43 @@ table
     width: 150px;
     height: 150px;
 }
+
+    .tabs{
+        font-size: 0;
+        text-align: left;
+    }
+    .tabs>input[type="radio"] {
+        display: none;
+    }
+    .tabs>div {
+        display: none;
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+    #tab-btn-1:checked~#content-1,
+    #tab-btn-2:checked~#content-2,
+    #tab-btn-3:checked~#content-3,
+    #tab-btn-4:checked~#content-4,
+    #tab-btn-5:checked~#content-5,
+    #tab-btn-6:checked~#content-6 {
+        display: block;
+    }
+    .tabs>label {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        user-select: none;
+        padding: 2px 8px;
+        font-size: 16px;
+        line-height: 1.5;
+        cursor: pointer;
+        position: relative;
+        top: 1px;
+    }
+    .tabs>label:not(:first-of-type) {
+        border-left: none;
+    }
+    .tabs>input[type="radio"]:checked+label {
+        background-color: #fff;
+        border-bottom: 1px solid #80bdf5;
+    }
