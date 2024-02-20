@@ -20,7 +20,7 @@ include_once '../db/db.php';
         <h1>Расписание рейсов</h1>
     </div>
     <?php
-    $str_out = "SELECT * FROM `flights`";
+    $str_out = "SELECT * FROM `flights` WHERE `status` = 2";
     $run_out = mysqli_query($connect, $str_out);
             while ($flights = mysqli_fetch_array($run_out)) {
                 echo "<div class='out out_schedule'>
