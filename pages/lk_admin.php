@@ -194,6 +194,7 @@ if ($_SESSION['user']['role'] == 1) {
                                 <th>ID рейса</th>
                                 <th>Роль клиента</th>
                                 <th>Цена</th>
+                                <th>Статус рейса</td>
                                 <th colspan="2">Действия</th>
                             </tr>
                             <?php
@@ -225,6 +226,36 @@ if ($_SESSION['user']['role'] == 1) {
                                         # code...
                                         break;
                                 }
+                                $str_out_flights_admin = "SELECT * FROM `flights` WHERE `id` = $sales[id_flights]";
+                                $run_out_flights_admin = mysqli_query($connect, $str_out_flights_admin);
+                                $flights_admin = mysqli_fetch_array($run_out_flights_admin);
+                                switch ($flights_admin['status']) {
+                                    case '1':
+                                        $status_admin = "В ожидании";
+                                        break;
+                                    case '2':
+                                        $status_admin = "Регистрация открыта";
+                                        break;
+                                    case '3':
+                                        $status_admin = "Регистрация закрыта";
+                                        break;
+                                    case '4':
+                                        $status_admin = "Отложен";
+                                        break;
+                                    case '5':
+                                        $status_admin = "Отменен";
+                                        break;
+                                    case '6':
+                                        $status_admin = "В полёте";
+                                        break;
+                                    case '7':
+                                        $status_admin = "Успешен";
+                                        break;
+                                    
+                                    default:
+                                        # code...
+                                        break;
+                                }
                                 echo "<tr class='e-ever2'>
                                         <td>$sales[id]</td>
                                         <td>$sales[first_name]</td>
@@ -238,6 +269,7 @@ if ($_SESSION['user']['role'] == 1) {
                                         <td>$sales[id_flights]</td>
                                         <td>$role_sales</td>
                                         <td>$sales[price]</td>
+                                        <td>$status_admin</td>
                                         <td><a href='update_sales.php?edit_sales=$sales[id]' target='_blank' class='e-update'>Обновить</a></td>
                                         <td><a href='?del_sales=$sales[id]' class='e-delete'>Удалить</a></td>
                                     </tr>";
