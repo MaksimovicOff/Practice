@@ -18,7 +18,7 @@
     $wheres = $_POST['Wheres'];
     $data = $_POST['data'];
     $search = $_POST['Search'];
-    $str_out = "SELECT * FROM `flights` WHERE `whence` like '%$whence%' && `wheres` like '%$wheres%' && `ddate` like '%$data%'";
+    $str_out = "SELECT * FROM `flights` WHERE `whence` like '%$whence%' && `wheres` like '%$wheres%' && `ddate` like '%$data%' && `status` = 2";
     
     if ($search) {
         $run_out = mysqli_query($connect, $str_out);
