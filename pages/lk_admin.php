@@ -2,6 +2,9 @@
 session_start();
 error_reporting(0);
 include_once '../db/db.php';
+if (empty($_SESSION['user'])) {
+    header("Location:../index.php");
+}
 if ($_SESSION['user']['role'] == 1) {
     header("Location:lk_user.php");
 }

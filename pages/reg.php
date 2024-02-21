@@ -55,7 +55,7 @@ $num_out = mysqli_num_rows($run_out);
 $str_add_users = "INSERT INTO `users` (`first_name`, `last_name`, `patronymic`, `email`, `password`, `phone`) VALUES ('$firstname', '$lastname', '$patronymic', '$email', '$password', '$phone')";
 
 if ($_SESSION['user']['role'] == '1') {
-    header("Location:lk_user.php");
+    header("Location:lk_user.php" or $_SESSION['user']['role'] == '3');
 }elseif ($_SESSION['user']['role'] == '2') {
     header("Location:lk_admin.php");
 }else {
@@ -79,7 +79,7 @@ if ($_SESSION['user']['role'] == '1') {
                         "role" => $user['role'],
                         "role_sales" => $user['role_sales']
                     ];
-                    if ($_SESSION['user']['role'] == '1') {
+                    if ($_SESSION['user']['role'] == '1' or $_SESSION['user']['role'] == '3') {
                         header("Location: lk_user.php");
                     }elseif ($_SESSION['user']['role'] == '2') {
                         header("Location: lk_admin.php");

@@ -1396,3 +1396,34 @@ table
 {
     margin: 5% 0;
 }
+
+.buh .private_data
+{
+    color: #0085FF!important;
+    margin-top: 5%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.buh
+{
+    text-align: center;
+}
+
+.download_xls
+{
+    background: #0085FF;
+    color: #fff;
+    border-radius: 10px;
+    border: 1px solid #0085FF;
+    padding: 3% 5%;
+    transition: 0.3s all;
+    text-align: center;
+}
+
+.download_xls:hover
+{
+    background: transparent;
+    color: #0085FF;
+    transition: 0.3s all;
+}
