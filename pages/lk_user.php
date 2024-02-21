@@ -170,6 +170,7 @@ error_reporting(0);
                     <th>Количество детей</th>
                     <th>Класс самолёта</th>
                     <th>Цена</th>
+                    <th>Статус рейса</th>
                 </tr>
                 <?php
                 while ($sales = mysqli_fetch_array($run_out_sales)) {
@@ -179,6 +180,36 @@ error_reporting(0);
                             break;
                         case '2':
                             $class = "Бизнес";
+                            break;
+                        
+                        default:
+                            # code...
+                            break;
+                    }
+                    $str_out_flights = "SELECT * FROM `flights` WHERE `id` = $sales[id_flights]";
+                    $run_out_flights = mysqli_query($connect, $str_out_flights);
+                    $flights = mysqli_fetch_array($run_out_flights);
+                    switch ($flights['status']) {
+                        case '1':
+                            $status = "В ожидании";
+                            break;
+                        case '2':
+                            $status = "Регистрация открыта";
+                            break;
+                        case '3':
+                            $status = "Регистрация закрыта";
+                            break;
+                        case '4':
+                            $status = "Отложен";
+                            break;
+                        case '5':
+                            $status = "Отменен";
+                            break;
+                        case '6':
+                            $status = "В полёте";
+                            break;
+                        case '7':
+                            $status = "Успешен";
                             break;
                         
                         default:
@@ -195,6 +226,7 @@ error_reporting(0);
                             <td>$sales[children]</td>
                             <td>$class</td>
                             <td>$sales[price]</td>
+                            <td>$status</td>
                         </tr>";
                 }
                 ?>

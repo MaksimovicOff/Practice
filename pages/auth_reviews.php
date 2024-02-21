@@ -55,7 +55,7 @@
                                 "role" => $user['role'],
                                 "role_sales" => $user['role_sales']
                             ];
-                            header("Location:create_review.php");
+                            header("Location:otzivi.php");
                         }
                         else {
                             echo "<p class='error error_auth'>Неверный логин или пароль</p>";

@@ -1,36 +1,29 @@
+<?php
+session_start();
+error_reporting(0);
+include_once '../db/db.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../styles/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <title>Поиск</title>
+    <title>Авиабилеты</title>
 </head>
 <body>
-    <h1 class="e-h1">Результаты поиска</h1>
+    <div class="heads">
+        <?php
+        include_once '../controllers/header_menu_second.php';
+        ?>      
+        <h1>Расписание рейсов</h1>
+    </div>
     <?php
-    session_start();
-    include_once "../db/db.php";
-    $whence = $_POST['Whence'];
-    $wheres = $_POST['Wheres'];
-    $data = $_POST['data'];
-    $search = $_POST['Search'];
-    $str_out = "SELECT * FROM `flights` WHERE `whence` like '%$whence%' && `wheres` like '%$wheres%' && `ddate` like '%$data%' && `status` = 2";
-    
-    if ($search) {
-        $run_out = mysqli_query($connect, $str_out);
-        $num_out = mysqli_num_rows($run_out);
-        echo $num_out;
-        if ($num_out == 0) {
-            echo "<h1 class='e-sad'>К сожалению, ничего не найдено!</h1>
-                <a href='../index.php' class='e-back-sad'>Назад</a>";
-            
-        }else {
+    $str_out = "SELECT * FROM `flights` WHERE `status` = 2";
+    $run_out = mysqli_query($connect, $str_out);
             while ($flights = mysqli_fetch_array($run_out)) {
-                echo "<div class='out'>
+                echo "<div class='out out_schedule'>
                 <div class='out_main'>
                     <div class='out_price'>$flights[price]</div>
                     <div>
@@ -53,11 +46,10 @@
                 </div>
             </div>";
             }
-        }
-    }
     ?>
-    
+    <?php
+        include_once '../controllers/footer.php';
+    ?>
 </body>
 <script src="../scripts/js.js"></script>
 </html>
-

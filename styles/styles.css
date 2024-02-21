@@ -129,7 +129,7 @@ h2
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 40%;
     background-color: #0085FF;
 }
 
@@ -1135,6 +1135,7 @@ table
 
 .index_reviews
 {
+    min-width: 20%;
     width: 70%;
     padding-bottom: 5%;
 }
@@ -1385,4 +1386,13 @@ table
     transition: 0.3s;
     color: #95c9f5;
     text-decoration: none;
+
+.out_schedule
+{
+    margin-top: 5%;
+}
+
+.review_out
+{
+    margin: 5% 0;
 }
