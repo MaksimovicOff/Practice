@@ -23,7 +23,6 @@
     if ($search) {
         $run_out = mysqli_query($connect, $str_out);
         $num_out = mysqli_num_rows($run_out);
-        echo $num_out;
         if ($num_out == 0) {
             echo "<h1 class='e-sad'>К сожалению, ничего не найдено!</h1>
                 <a href='../index.php' class='e-back-sad'>Назад</a>";
