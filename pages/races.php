@@ -22,25 +22,30 @@ include_once '../db/db.php';
     <?php
     $str_out = "SELECT * FROM `flights` WHERE `status` = 5";
     $run_out = mysqli_query($connect, $str_out);
-            while ($flights = mysqli_fetch_array($run_out)) {
-                echo "<div class='out out_schedule'>
-                <div class='out_main'>
-                    <div class='out_price'>$flights[price]</div>
-                    <div>
-                        <p class='out_price'>Отбытие</p>
-                        <p class='out_price'>$flights[etime]</p>
-                        <p>$flights[whence]</p>
-                        <p>$flights[ddate]</p>
-                    </div>
-                    <div>
-                        <p class='out_price'>Прибытие</p>
-                        <p class='out_price'>$flights[atime]</p>
-                        <p>$flights[wheres]</p>
-                        <p>$flights[adate]</p>
-                    </div>
+    $num_out = mysqli_num_rows($run_out);
+    if ($num_out == 0) {
+        echo "<h1 class='e-sad'>На данный момент отмененных рейсов нет!</h1>";
+    }else {
+        while ($flights = mysqli_fetch_array($run_out)) {
+            echo "<div class='out out_schedule'>
+            <div class='out_main'>
+                <div class='out_price'>$flights[price]</div>
+                <div>
+                    <p class='out_price'>Отбытие</p>
+                    <p class='out_price'>$flights[etime]</p>
+                    <p>$flights[whence]</p>
+                    <p>$flights[ddate]</p>
                 </div>
-            </div>";
-            }
+                <div>
+                    <p class='out_price'>Прибытие</p>
+                    <p class='out_price'>$flights[atime]</p>
+                    <p>$flights[wheres]</p>
+                    <p>$flights[adate]</p>
+                </div>
+            </div>
+        </div>";
+        }
+    }
     ?>
     <?php
         include_once '../controllers/footer.php';
