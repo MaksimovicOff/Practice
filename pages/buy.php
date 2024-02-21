@@ -47,7 +47,7 @@
                 <input type="text" readonly value="<?php echo $flights['price'] ?>" id="Price" name="price">
                 <input type="text" readonly value="<?php echo $flights['price'] ?>" id="Price2">
                 <input type="button" value="Посчитать стоимость" id="set_price">
-                <input type="submit" value="Купить" name="buy">
+                <input type="submit" value="Купить" name="buy" disabled id="disabled_buy">
             </form>
             <?php
             $first_name = $_POST['first_name'];

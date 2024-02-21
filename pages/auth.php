@@ -34,7 +34,7 @@
                 $str_out = "SELECT * FROM `users` WHERE email = '$email' && password = '$password'";
                 $run_out = mysqli_query($connect, $str_out);
                 $num_out = mysqli_num_rows($run_out);
-                if ($_SESSION['user']['role'] == '1') {
+                if ($_SESSION['user']['role'] == '1' or $_SESSION['user']['role'] == '3') {
                     header("Location:lk_user.php");
                 }elseif ($_SESSION['user']['role'] == '2') {
                     header("Location:lk_admin.php");
@@ -55,7 +55,7 @@
                                 "role" => $user['role'],
                                 "role_sales" => $user['role_sales']
                             ];
-                            if ($_SESSION['user']['role'] == '1') {
+                            if ($_SESSION['user']['role'] == '1' or $_SESSION['user']['role'] == '3') {
                                 header("Location:lk_user.php");
                             }elseif ($_SESSION['user']['role'] == '2') {
                                 header("Location:lk_admin.php");

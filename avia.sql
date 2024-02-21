@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 16 2024 г., 08:51
+-- Время создания: Фев 21 2024 г., 13:25
 -- Версия сервера: 8.0.24
 -- Версия PHP: 8.0.8
 
@@ -50,8 +50,8 @@ INSERT INTO `flights` (`id`, `whence`, `wheres`, `ddate`, `adate`, `etime`, `ati
 (5, 'Нижний Новгород', 'Нижний Тагил', '2024-03-07', '2024-03-10', '16:00', '18:35', 4500, 7),
 (6, 'Ижевск', 'Москва', '2024-02-14', '2024-02-29', '13:49', '14:51', 3000, 1),
 (7, 'Томск', 'Владивосток', '2024-02-29', '2024-03-10', '12:00', '16:10', 20500, 1),
-(8, 'Томск', 'Владивосток', '2024-02-29', '2024-03-10', '12:00', '16:10', 20500, 1),
-(9, '1', '1', '2024-01-30', '2024-02-24', '22:30', '01:30', 1010, 1);
+(10, 'Мурманск', 'Ижевск', '2024-03-09', '2024-03-24', '14:20', '14:25', 7000, 1),
+(11, 'Ижевск', 'Казань', '2024-02-07', '2024-02-26', '22:59', '22:59', 30000, 5);
 
 -- --------------------------------------------------------
 
@@ -76,7 +76,9 @@ INSERT INTO `reviews` (`id`, `id_user`, `content`, `status`) VALUES
 (3, 1, 'фыфыфыфыфыфыфыфыфыфыфы', 2),
 (4, 1, 'Все круто и отлично', 2),
 (5, 3, 'Все круто и отлично', 2),
-(6, 40, 'test', 2);
+(7, 3, '123', 2),
+(8, 1, 'А', 2),
+(9, 1, 'Все агонь', 2);
 
 -- --------------------------------------------------------
 
@@ -109,8 +111,11 @@ INSERT INTO `sales` (`id`, `first_name`, `last_name`, `patronymic`, `email`, `ph
 (7, 'admin', 'admin', 'admin', 'admin@admin.ru', '89509999999', 2, 1, 2, 6, 3, 8640),
 (8, 'admin', 'admin', 'admin', 'admin@admin.ru', '89509999999', 1, 0, 1, 2, 3, 5600),
 (9, 'Егор', 'Хозяшев', 'Димович', 'gv7361299@gmail.com', '89999999988', 1, 0, 1, 2, 1, 9100),
-(10, 'admin', 'admin', 'admin', 'admin@admin.ru', '89509999999', 1, 0, 2, 6, 3, 4320),
-(12, 'admin1', 'admin1', 'admin1', 'admin@admin.ru', '89509999999', 1, 0, 1, 5, 3, 3600);
+(12, 'admin1', 'admin1', 'admin1', 'admin@admin.ru', '89509999999', 1, 1, 1, 5, 3, 9360),
+(13, 'admin12', 'admin12', 'admin12', 'admin@admin.ru', '89509999999', 1, 0, 1, 10, 3, 7280),
+(16, 'admin123', 'admin123', 'admin123', 'admin@admin.ru', '89509999999', 1, 0, 1, 4, 3, 6032),
+(17, 'admin123', 'admin123', 'admin123', 'admin@admin.ru', '89509999999', 1, 0, 1, 4, 3, 6032),
+(18, 'admin123', 'admin123', 'admin123', 'admin@admin.ru', '89509999999', 1, 1, 1, 4, 3, 9744);
 
 -- --------------------------------------------------------
 
@@ -136,9 +141,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `patronymic`, `email`, `password`, `phone`, `role`, `role_sales`, `photo`) VALUES
-(1, 'admin1', 'admin1', 'admin1', 'admin@admin.ru', '321', '89509999999', 2, 3, 'photo_2023-12-25_21-26-42.jpg'),
-(3, 'Егор', 'Хозяшев', 'Димович', 'gv7361299@gmail.com', 'qiawox', '89999999988', 1, 1, 'photo_2023-02-14_10-05-29.jpg'),
-(40, 'test', 'test', 'test', 'test@test.ru', 'test', '123', 1, 1, 'ava.png');
+(1, 'admin123', 'admin123', 'admin123', 'admin@admin.ru', '321', '89509999999', 2, 3, 'photo_2023-12-25_21-26-42.jpg'),
+(3, 'Егор1', 'Хозяшев1', 'Димович1', 'gv7361299@gmail.com', 'qiawox1', '89999999988', 1, 1, 'ZjSq6eb3Jug.jpg'),
+(46, 'buh', 'buh', 'buh', 'buh@buh.ru', 'buh', '79999999999', 3, 1, 'ava.png');
 
 --
 -- Индексы сохранённых таблиц
@@ -177,25 +182,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `flights`
 --
 ALTER TABLE `flights`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблицы `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT для таблицы `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

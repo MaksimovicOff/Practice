@@ -2,6 +2,9 @@
 session_start();
 include_once '../db/db.php';
 error_reporting(0);
+if (empty($_SESSION['user'])) {
+    header("Location:../index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +15,9 @@ error_reporting(0);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="
+https://cdn.jsdelivr.net/npm/@linways/table-to-excel@1.0.4/dist/tableToExcel.min.js
+"></script>
     <title>Авторизация</title>
 </head>
 <body>
@@ -230,7 +236,65 @@ error_reporting(0);
                         </tr>";
                 }
                 ?>
+            </table>
         </div>
+        <?php
+
+        if ($_SESSION['user']['role'] == 3) {
+            $str_out_tickets = "SELECT * FROM `sales`";
+            $run_out_tickets = mysqli_query($connect, $str_out_tickets);
+        ?>
+        <div class="buh">
+            <div class="private_data"><p>Создание отчета</p></div>
+            <table style="margin-bottom: 5%;" id="table_xls">
+                <tr>
+                    <th>ID</th>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Отчество</th>
+                    <th>Email</th>
+                    <th>Цена</th>
+                </tr>
+                <?php
+                while ($out_tickets = mysqli_fetch_array($run_out_tickets)) {
+                    echo "<tr class='e-ever2'>
+                            <td>$out_tickets[id]</td>
+                            <td>$out_tickets[first_name]</td>
+                            <td>$out_tickets[last_name]</td>
+                            <td>$out_tickets[patronymic]</td>
+                            <td>$out_tickets[email]</td>
+                            <td>$out_tickets[price]</td>
+                        </tr>";
+                }
+                $str_out_count = "SELECT count(*) FROM `sales`";
+                $run_out_count = mysqli_query($connect, $str_out_count);
+                $count_out = mysqli_fetch_array($run_out_count);
+                $str_out_sum = "SELECT SUM(price) FROM `sales`";
+                $run_out_sum = mysqli_query($connect, $str_out_sum);
+                $sum_out = mysqli_fetch_array($run_out_sum);
+                echo "<tr class='e-ever2'>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Количество покупок:</td>
+                        <td>$count_out[0]</td>
+                    </tr>
+                    <tr class='e-ever2'>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Сумма покупок:</td>
+                        <td>$sum_out[0]</td>
+                    </tr>";
+                ?>
+            </table>
+            <input type="submit" value="Скачать .xls" class="download_xls" id="download"> 
+        </div>
+        <?php
+        }
+        ?>
     </div>
 </body>
 <script src="../scripts/js.js"></script>

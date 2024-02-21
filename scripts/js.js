@@ -37,17 +37,20 @@ $('#set_price').click(function(){
     let price = Number($('#Price2').val());
     let select = Number($('#class').val());
     let role = Number($('#role').val());
+    
     console.log(select);
     if ($('.checkbox').is(":checked") === false) {
         if (select === 1) {
             if (role === 1) {
                 let result = price * adult + price * children * 0.8;
                 $('#Price').attr('value', result);
+                $('#disabled_buy').attr('disabled', false);
                 console.log('ne');
             }
             if (role > 1) {
                 let result = (price * adult + price * children * 0.8) * 0.8;
                 $('#Price').attr('value', result);
+                $('#disabled_buy').attr('disabled', false);
                 console.log('ne');  
             }
             
@@ -55,11 +58,13 @@ $('#set_price').click(function(){
             if (role === 1) {
                 let result = price * adult + price * children * 0.8 + price * 0.5;
                 $('#Price').attr('value', result);
+                $('#disabled_buy').attr('disabled', false);
                 console.log('ne');     
             }
             if (role > 1) {
                 let result = (price * adult + price * children * 0.8 + price * 0.5) * 0.8;
                 $('#Price').attr('value', result);
+                $('#disabled_buy').attr('disabled', false);
                 console.log('ne');     
             }
                
@@ -70,20 +75,24 @@ $('#set_price').click(function(){
             if (select === 1) {
                 if (role === 1) {
                     let result = price * adult + price * children * 0.8 + price * 0.3;
-                    $('#Price').attr('value', result);     
+                    $('#Price').attr('value', result);
+                    $('#disabled_buy').attr('disabled', false); 
                 }
                 if (role > 1) {
                     let result = (price * adult + price * children * 0.8 + price * 0.3) * 0.8;
-                    $('#Price').attr('value', result);     
+                    $('#Price').attr('value', result);
+                    $('#disabled_buy').attr('disabled', false);  
                 }  
             }if (select === 2) {
                 if (role === 1) {
                     let result = price * adult + price * children * 0.8 + price * 0.3 + price * 0.5;
-                    $('#Price').attr('value', result);   
+                    $('#Price').attr('value', result);
+                    $('#disabled_buy').attr('disabled', false);
                 }
                 if (role > 1) {
                     let result = (price * adult + price * children * 0.8 + price * 0.3 + price * 0.5) * 0.8;
                     $('#Price').attr('value', result);
+                    $('#disabled_buy').attr('disabled', false);
                 }
                    
             }
@@ -121,4 +130,14 @@ document.addEventListener('DOMContentLoaded', function() {
 				first = text.shift()
 		$(this).html(`${first} <br><span>${text.join(' ')}</span>`)
 	})
+})
+
+$('#download').click(function(){
+    let table = $('#table_xls');
+    TableToExcel.convert(table[0], {
+        name: `report.xlsx`,
+        sheet: {
+            name: 'report'
+        }
+    })
 })
