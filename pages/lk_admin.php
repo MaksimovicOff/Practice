@@ -158,7 +158,7 @@ if ($_SESSION['user']['role'] == 1 or $_SESSION['user']['role'] == 3) {
                 </div>
             </div>
         </div>
-        <div style="display: flex; min-width: 100%;">
+        <div class="lk_admin_test">
             <div class="tabs" style="width: 100%; margin-bottom: 10%;">
                     <input type="radio" name="tab-btn" id="tab-btn-1" value="" checked>
                     <label for="tab-btn-1" style="margin: 10px; padding-bottom: 10px; border-bottom: 2px solid #0085ff;">Ваши купленные билеты</label>

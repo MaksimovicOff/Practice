@@ -25,7 +25,7 @@ include_once '../db/db.php';
             while ($flights = mysqli_fetch_array($run_out)) {
                 echo "<div class='out out_schedule'>
                 <div class='out_main'>
-                    <div class='out_price'>$flights[price]</div>
+                    <div class='out_price'>$flights[price] ₽</div>
                     <div>
                         <p class='out_price'>Отбытие</p>
                         <p class='out_price'>$flights[etime]</p>

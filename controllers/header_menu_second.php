@@ -18,6 +18,40 @@
         ?>	
 	</div>
 </div>
+<div class="navbar">
+    <div class="navbar-toggle" id="js-navbar-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    <ul class="main-nav" id="js-menu">
+        <li>
+            <a href="../index.php" class="nav-links">Главная</a>
+        </li>
+        <li>
+            <a href="../pages/races.php" class="nav-links">Отмененнные рейсы</a>
+        </li>
+        <li>
+            <a href="../pages/raspisanie.php" class="nav-links">Расписание</a>
+        </li>
+        <li>
+            <a href="../pages/otzivi.php" class="nav-links">Отзывы</a>
+        </li>
+        <li>
+            <a href="../pages/about.php" class="nav-links">О нас</a>
+        </li>
+        <li>
+            <?php
+            session_start();
+            error_reporting(0);
+            include_once '../db/db.php';
+            if ($_SESSION['user']) {
+            ?><a href="../pages/lk_admin.php"><i class="fa-solid fa-user"></i> <?php echo $_SESSION['user']['first_name']; ?></a><?php
+            }else {
+            ?><a href="#modal"><i class="fa-solid fa-user"></i> Войти</a><?php
+            }
+            ?>
+        </li>
+    </ul>
+</div>
 <div class="modal" id="modal">
     <div class="modal_body">
         <div class="modal_content">

@@ -14,7 +14,7 @@
 		<h1>О нас</h1>
 	</div>
 	<div class="content" style="display: flex;">
-		<div style="display: flex;flex-wrap: wrap;flex-direction: column;height: 100%;width: 55%;align-items: center;margin-left: 2%;">
+		<div class="about_content_p">
 			<br>
 			<h3>О нас</h3>
 			<br>
