@@ -55,7 +55,7 @@
                                 "role" => $user['role'],
                                 "role_sales" => $user['role_sales']
                             ];
-                            header("Location:search.php");
+                            header("Location:../index.php");
                         }
                         else {
                             echo "<p class='error error_auth'>Неверный логин или пароль</p>";
